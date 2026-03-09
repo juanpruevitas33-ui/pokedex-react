@@ -1,0 +1,3409 @@
+A partir del 18 de junio se está lanzando una nueva especificación GraphQL, la v1beta2. Lee más en GraphQL v1beta2. La versión anterior v1beta está en proceso de anulación y está programada para ser eliminada.
+
+
+Índice
+Información
+Política de Uso Legítimo
+Slack
+Bibliotecas de envoltorios
+Listas de recursos/paginación
+Bayas
+Concursos
+Encuentros
+Evolución
+Juegos
+Elementos
+Punto
+Atributos de los objetos
+Categorías de artículos
+Efectos de lanzamiento de objetos
+Bolsillos de objetos
+Ubicaciones
+Máquinas
+Movimientos
+Pokémon
+Utilidad
+Si estabas usando la v1 de esta API, por favor cambia a la v2 (esta página). Leer más...Herramientas de prueba de API
+
+Consejo rápido: Utiliza la función de "encontrar en la página" de tu navegador para buscar tipos específicos de recursos (o ).Ctrl+FCmd+F
+
+Información
+Esta es una API solo para consumo — solo el método HTTP GET está disponible en los recursos.
+
+No se requiere autenticación para acceder a esta API, y todos los recursos están completamente abiertos y disponibles. Desde el cambio al alojamiento estático en noviembre de 2018, la limitación de tarifas se ha eliminado por completo, pero aún te animamos a limitar la frecuencia de las solicitudes para limitar nuestros costes de alojamiento.
+
+Política de Uso Legítimo
+PokéAPI es gratuito y está abierto a usar. También es muy popular. Por ello, pedimos a todos los desarrolladores que cumplan con nuestra política de uso legítimo. Las personas que no cumplan con la política de uso legítimo verán su dirección IP prohibida permanentemente.
+
+PokéAPI es principalmente una herramienta educativa, y no toleraremos ataques de denegación de servicio que impidan que las personas aprendan.
+
+Normas:
+
+Almacena los recursos en caché localmente siempre que los solicites.
+Sé amable y amable con tus compañeros desarrolladores de PokéAPI.
+Si detectas vulnerabilidades de seguridad, actúa y repórtalas de forma responsable.
+Slack y comunidad
+Actualmente, ningún mantenedor tiene suficiente tiempo libre para apoyar a la comunidad en Slack. Nuestro Slack está en estado de no mantenimiento. Aún puedes registrarte aquí mismo y luego visitar nuestra página de Slack.
+
+Bibliotecas de envoltorios
+Lado del servidor de Node con caché automática: Pokédex Promise v2 por Thomas Asadurian y Alessandro Pezzé
+Lado del navegador con caché automática: pokeapi-js-wrapper por Alessandro Pezzé
+Python 3 con caché automática: PokeBase de Greg Hilmes
+Python 2/3 con caché automática: Pokepy de Paul Hallett
+Kotlin Multiplataforma (JVM, Nativo, Navegador y Nodo) con caché automática: PokeKotlin de sargunv
+Java (Spring Boot) con caché automática: pokeapi-reactor por Benjamin Churchill
+.NET (C#, VB, etc): PokeApi.NET por PoroCYon
+.NET Estándar: PokeApiNet por mtrdp642
+Swift: PokemonAPI por kinkofer
+PHP: PokePHP de Dan Rovito
+PHP: PHPokéAPI por lmerotta
+Rubí: Poke-Api-V2 por rdavid1099
+Go: pokeapi-go de mtslzr
+Go: PokéGo de Josh Guarino
+Crystal: pokeapi de henrikac
+Typescript con caché automática: Pokenode-ts por Gabb-c
+Rust con caché automática: Rustemon por mlemesle
+Envoltura asíncrona en Python con autocaching: aiopokeapi por beastmatser
+Scala 3 con caché automática: pokeapi-scala de Juliano Alves
+Envoltorio de Elixir con caché automática: Max-Elixir-PokeAPI de Henrique Artur
+Listas de recursos/Paginación (grupo)
+Llamar a cualquier endpoint de API sin ID o nombre de recurso devolverá una lista paginada de recursos disponibles para esa API. Por defecto, una "página" de lista contendrá hasta 20 recursos. Si quieres cambiar esto, simplemente añade un parámetro de consulta 'límite' a la petición GET, por ejemplo. Puedes usar 'desplazamiento' para pasar a la siguiente página, por ejemplo, . , , , , , los extremos no tienen nombre, el resto sí están nombrados.?limit=60?limit=60&offset=60characteristiccontest-effectevolution-chainmachinesuper-contest-effect
+
+Nombre (endpoint)
+GET https://pokeapi.co/api/v2/{endpoint}/
+
+Conteo:248
+Siguiente:"https://pokeapi.co/api/v2/ability/?limit=20&offset=20"
+Anterior:null
+Nombre:"hedor"
+URL:"https://pokeapi.co/api/v2/ability/1/"
+ Ver JSON en bruto (0,213 kB, 11 líneas)
+NamedAPIResourceList (tipo)
+Nombre	Descripción	Tipo
+Conde	
+El número total de recursos disponibles de esta API.
+
+enteros
+Siguiente	
+La URL de la siguiente página de la lista.
+
+Cuerda
+Anterior	
+La URL de la página anterior en la lista.
+
+Cuerda
+Resultados	
+Una lista de recursos API con nombre.
+
+lista NombreAPIResource
+Sin nombre (punto final)
+GET https://pokeapi.co/api/v2/{endpoint}/
+
+Conteo:541
+Siguiente:"https://pokeapi.co/api/v2/evolution-chain?offset=20&limit=20"
+Anterior:null
+URL:"https://pokeapi.co/api/v2/evolution-chain/1/"
+ Ver JSON en bruto (0,204 kB, 10 líneas)
+APIResourceList (tipo)
+Nombre	Descripción	Tipo
+Conde	
+El número total de recursos disponibles de esta API.
+
+enteros
+Siguiente	
+La URL de la siguiente página de la lista.
+
+Cuerda
+Anterior	
+La URL de la página anterior en la lista.
+
+Cuerda
+Resultados	
+Una lista de recursos de la API sin nombre.
+
+resource API list
+Berries (grupo)
+Bayas (punto final)
+Las bayas son pequeñas frutas que pueden proporcionar vida y restauración de condición de estado, mejora de estadísticas e incluso negación de daño cuando las comen los Pokémon. Consulta Bulbapedia para más detalles.Guías de juegos Pokémon
+
+GET https://pokeapi.co/api/v2/berry/{id o nombre}/
+
+ID:1
+Nombre:"Cheri"
+growth_time:3
+max_harvest:5
+natural_gift_power:60
+Tamaño:20
+Suavidad:25
+soil_dryness:15
+Nombre:"suave"
+URL:"https://pokeapi.co/api/v2/berry-firmness/2/"
+Potencia:10
+Nombre:"picante"
+URL:"https://pokeapi.co/api/v2/berry-flavor/1/"
+Nombre:"Cheri-berry"
+URL:"https://pokeapi.co/api/v2/item/126/"
+Nombre:"fuego"
+URL:"https://pokeapi.co/api/v2/type/10/"
+ Ver JSON en bruto (0,608 kB, 31 líneas)
+Berry (tipo)
+Nombre	Descripción	Tipo
+id	
+El identificador de este recurso.
+
+enteros
+Nombre	
+El nombre de este recurso.
+
+Cuerda
+growth_	
+El tiempo que tarda el árbol en crecer una etapa, en horas. Los árboles de bayas pasan por cuatro de estas fases de crecimiento antes de poder ser recogidos.
+
+enteros
+max_cosecha	
+El número máximo de estas bayas que pueden crecer en un solo árbol en la Generación IV.
+
+enteros
+natural_gift_poder	
+El poder del movimiento "Don Natural" cuando se usa con esta baya.
+
+enteros
+Tamaño	
+El tamaño de esta baya, en milímetros.
+
+enteros
+suavidad	
+La suavidad de esta Baya, usada para hacer Pokéblocks o Poffins.
+
+enteros
+soil_sequedad	
+La velocidad a la que esta baya seca el suelo a medida que crece. Una tasa mayor significa que el suelo se seca más rápido.
+
+enteros
+firmeza	
+La firmeza de esta baya, usada para hacer Pokéblocks o Poffins.
+
+Recurso APIllamado (BerryFirmness)
+Sabores	
+Una lista de referencias a cada sabor que puede tener una baya y la potencia de cada uno de esos sabores en relación con ella.
+
+lista Mapa de saboresde frutos rojos
+Ítem	
+Las bayas son en realidad objetos. Esto es una referencia a los datos específicos de este producto.
+
+Recurso APINombrado (Item)
+natural_gift_tipo	
+El tipo heredado por "Don Natural" cuando se usa con esta baya.
+
+Recurso APINombrado (Tipo)
+BerryFlavorMap (tipo)
+Nombre	Descripción	Tipo
+Potencia	
+Qué potente es el sabor referenciado de esta baya.
+
+enteros
+Sabor	
+El sabor a frutos rojos que se refería.
+
+Recurso APInombrado (BerryFlavor)
+Firmezas de las bayas (punto final)
+Las bayas pueden ser blandas o duras. Consulta Bulbapedia para más detalles.
+
+GET https://pokeapi.co/api/v2/berry-firmness/{id o nombre}/
+
+ID:1
+Nombre:"Muy suave"
+Nombre:"Pecha"
+URL:"https://pokeapi.co/api/v2/berry/3/"
+Nombre:"Muy suave"
+Nombre:"en"
+URL:"https://pokeapi.co/api/v2/language/9/"
+ Ver JSON en bruto (0,303 kB, 19 líneas)
+BerryFirmness (tipo)
+Nombre	Descripción	Tipo
+id	
+El identificador de este recurso.
+
+enteros
+Nombre	
+El nombre de este recurso.
+
+Cuerda
+bayas	
+Una lista de bayas con esta firmeza.
+
+lista NamedAPIResource (Berry)
+Nombres	
+El nombre de este recurso aparece en diferentes idiomas.
+
+Nombre de la lista
+Sabores de frutos rojos (punto final)
+Los sabores determinan si un Pokémon se beneficiará o sufrirá al comer una baya según su naturaleza. Consulta Bulbapedia para más detalles.Guías de juegos Pokémon
+
+GET https://pokeapi.co/api/v2/berry-flavor/{id o name}/
+
+ID:1
+Nombre:"picante"
+Potencia:10
+Nombre:"Rowap"
+URL:"https://pokeapi.co/api/v2/berry/64/"
+Nombre:"Genial"
+URL:"https://pokeapi.co/api/v2/contest-type/1/"
+Nombre:"Picante"
+Nombre:"en"
+URL:"https://pokeapi.co/api/v2/language/9/"
+ Ver JSON en bruto (0,446 kB, 26 líneas)
+BerryFlavor (tipo)
+Nombre	Descripción	Tipo
+id	
+El identificador de este recurso.
+
+enteros
+Nombre	
+El nombre de este recurso.
+
+Cuerda
+bayas	
+Una lista de las bayas con este sabor.
+
+lista Mapa de Saboresde Bayas
+contest_tipo	
+El tipo de concurso que se relaciona con este sabor a baya.
+
+Recurso APINombrado (Tipo de Concurso)
+Nombres	
+El nombre de este recurso aparece en diferentes idiomas.
+
+Nombre de la lista
+FlavorBerryMap (tipo)
+Nombre	Descripción	Tipo
+Potencia	
+Qué potente es el sabor referenciado de esta baya.
+
+enteros
+Berry	
+La baya con el sabor mencionado.
+
+Recurso APInombrado (Berry)
+Concursos (grupo)
+Tipos de concursos (endpoint)
+Los tipos de concurso son categorías que los jueces utilizan para evaluar la condición de un  Pokémon en los concursos Pokémon. Consulta Bulbapedia para más detalles.
+
+GET https://pokeapi.co/api/v2/contest-type/{id o nombre}/
+
+ID:1
+Nombre:"Genial"
+Nombre:"picante"
+URL:"https://pokeapi.co/api/v2/berry-flavor/1/"
+Nombre:"Guay"
+Color:"Rojo"
+Nombre:"en"
+URL:"https://pokeapi.co/api/v2/language/9/"
+ Ver JSON en bruto (0,311 kB, 18 líneas)
+ContestType (tipo)
+Nombre	Descripción	Tipo
+id	
+El identificador de este recurso.
+
+enteros
+Nombre	
+El nombre de este recurso.
+
+Cuerda
+berry_ sabor	
+El sabor a frutos rojos que se relaciona con este tipo de concursos.
+
+Recurso APInombrado (BerryFlavor)
+Nombres	
+El nombre de este tipo de concurso está listado en diferentes idiomas.
+
+listaNombre del concurso
+Nombre del Concurso (tipo)
+Nombre	Descripción	Tipo
+Nombre	
+El nombre de este concurso.
+
+Cuerda
+Color	
+El color asociado al nombre de este concurso.
+
+Cuerda
+Idioma	
+El idioma en el que está este nombre.
+
+Recurso APInombrado (Lenguaje))
+Efectos de concurso (punto final)
+Los efectos de concurso se refieren a los efectos de los movimientos cuando se usan en concursos.
+
+GET https://pokeapi.co/api/v2/contest-effect/{id}/
+
+ID:1
+Apelación:4
+Jam:0
+Efecto:"Da un gran número de puntos de apelación sin otros efectos."
+Nombre:"en"
+URL:"https://pokeapi.co/api/v2/language/9/"
+flavor_text:"Un movimiento muy atractivo."
+Nombre:"en"
+URL:"https://pokeapi.co/api/v2/language/9/"
+ Ver JSON en bruto (0,46 kB, 23 líneas)
+ContestEffect (tipo)
+Nombre	Descripción	Tipo
+id	
+El identificador de este recurso.
+
+enteros
+Apelación	
+El número base de corazones que obtiene el usuario de este movimiento.
+
+enteros
+Jam	
+El número base de corazones que pierde el oponente del usuario.
+
+enteros
+effect_entradas	
+El resultado de este efecto de concurso se enumera en diferentes idiomas.
+
+lista Efecto
+flavor_text_entradas	
+El texto de ambientación de este efecto de concurso se enumera en diferentes idiomas.
+
+lista Texto de sabor
+Super Contest Effects (punto final)
+Los efectos de superconcurso se refieren a los efectos de los movimientos cuando se usan en superconcursos.
+
+GET https://pokeapi.co/api/v2/super-contest-effect/{id}/
+
+ID:1
+Apelación:2
+flavor_text:"Permite al usuario actuar primero en el siguiente turno."
+Nombre:"en"
+URL:"https://pokeapi.co/api/v2/language/9/"
+Nombre:"agilidad"
+URL:"https://pokeapi.co/api/v2/move/97/"
+ Ver JSON en bruto (0,358 kB, 19 líneas)
+SuperContestEffect (tipo)
+Nombre	Descripción	Tipo
+id	
+El identificador de este recurso.
+
+enteros
+Apelación	
+El nivel de atractivo que tiene este efecto de superconcurso.
+
+enteros
+flavor_text_entradas	
+El texto de ambientación de este efecto de superconcurso está listado en diferentes idiomas.
+
+lista Texto de sabor
+Movimientos	
+Una lista de movimientos que tienen efecto cuando se usan en superconcursos.
+
+list NamedAPIResource (Move)
+Encuentros (grupo)
+Métodos de encuentro (punto final)
+Métodos por los que el jugador puede encontrarse con Pokémon en la naturaleza, por ejemplo, caminando sobre hierba alta. Consulta Bulbapedia para más detalles.Guías de juegos Pokémon
+
+GET https://pokeapi.co/api/v2/encounter-method/{id o nombre}/
+
+ID:1
+Nombre:"caminar"
+Orden:1
+Nombre:"Caminando por hierba alta o una cueva"
+Nombre:"en"
+URL:"https://pokeapi.co/api/v2/language/9/"
+ Ver JSON en bruto (0,229 kB, 14 líneas)
+EncounterMethod (tipo)
+Nombre	Descripción	Tipo
+id	
+El identificador de este recurso.
+
+enteros
+Nombre	
+El nombre de este recurso.
+
+Cuerda
+Orden	
+Una buena relación calidad-precio para clasificar.
+
+enteros
+Nombres	
+El nombre de este recurso aparece en diferentes idiomas.
+
+Nombre de la lista
+Condiciones de encuentro (punto final)
+Condiciones que afectan qué  Pokémon pueden aparecer en la naturaleza, por ejemplo, de día o de noche.Prendas con temática Pokémon
+
+GET https://pokeapi.co/api/v2/encounter-condition/{id o nombre}/
+
+ID:1
+Nombre:"enjambre"
+Nombre:"Enjambre-sí"
+URL:"https://pokeapi.co/api/v2/encounter-condition-value/1/"
+Nombre:"Enjambre-No"
+URL:"https://pokeapi.co/api/v2/encounter-condition-value/2/"
+Nombre:"Schwarm"
+Nombre:"de"
+URL:"https://pokeapi.co/api/v2/language/6/"
+ Ver JSON en bruto (0,429 kB, 23 líneas)
+EncounterCondition (tipo)
+Nombre	Descripción	Tipo
+id	
+El identificador de este recurso.
+
+enteros
+Nombre	
+El nombre de este recurso.
+
+Cuerda
+Nombres	
+El nombre de este recurso aparece en diferentes idiomas.
+
+Nombre de la lista
+Valores	
+Una lista de posibles valores para esta condición de encuentro.
+
+list NamedAPIResource (Valor de Condiciónde Encuentro)
+Valores de la condición de encuentro (punto final)
+Los valores de la condición de encuentro son los distintos estados que puede tener una condición de encuentro, es decir, la hora del día puede ser de día o de noche.
+
+GET https://pokeapi.co/api/v2/encounter-condition-value/{id o nombre}/
+
+ID:1
+Nombre:"Enjambre-sí"
+Nombre:"enjambre"
+URL:"https://pokeapi.co/api/v2/encounter-condition/1/"
+Nombre:"Während eines Schwarms"
+Nombre:"de"
+URL:"https://pokeapi.co/api/v2/language/6/"
+ Ver JSON en bruto (0,319 kB, 17 líneas)
+EncounterConditionValue (tipo)
+Nombre	Descripción	Tipo
+id	
+El identificador de este recurso.
+
+enteros
+Nombre	
+El nombre de este recurso.
+
+Cuerda
+Condición	
+La condición a la que se refiere este valor de condición de encuentro.
+
+Recurso APInombrado (Condición de encuentro)
+Nombres	
+El nombre de este recurso aparece en diferentes idiomas.
+
+Nombre de la lista
+Evolución (grupo)
+Cadenas evolutivas (punto final)
+Las cadenas evolutivas son esencialmente árboles genealógicos. Comienzan con la etapa más baja dentro de una familia y detallan las condiciones de evolución de cada una, así como los  Pokémon a los que pueden evolucionar hasta la jerarquía.Guías de juegos Pokémon
+
+GET https://pokeapi.co/api/v2/evolution-chain/{id}/
+
+ID:7
+baby_trigger_item:null
+ Ver JSON en bruto (1,227 kB, 47 líneas)
+EvolutionChain (tipo)
+Nombre	Descripción	Tipo
+id	
+El identificador de este recurso.
+
+enteros
+baby_trigger_ punto	
+El objeto que un Pokémon tendría en la mano al aparearse y que haría que el huevo hiciera eclosionar un Pokémon bebé en lugar de un Pokémon básico.
+
+Recurso APINombrado (Item)
+Cadena	
+El objeto base de eslabón de cadena. Cada eslabón contiene detalles de evolución de un Pokémon en la cadena. Cada enlace hace referencia al siguiente Pokémon en el orden natural de evolución.
+
+Eslabón de cadena
+ChainLink (tipo)
+Nombre	Descripción	Tipo
+is_cariño	
+Independientemente de si este enlace es para un Pokémon bebé o no. Esto solo sería cierto en el enlace base.
+
+Booleano
+Especies	
+La especie Pokémon en este punto de la cadena evolutiva.
+
+Recurso APINombrado (Especies Pokémon)
+evolution_ detalles	
+Todos los detalles relacionados con los detalles específicos de la evolución de la especie Pokémon referenciada.
+
+lista Detalle de evolución
+evolves_	
+Una lista de objetos en cadena.
+
+Eslabón de la cadena de la lista
+EvolutionDetail (tipo)
+Nombre	Descripción	Tipo
+Ítem	
+El objeto necesario para hacer evolucionar esto en especies Pokémon.
+
+Recurso APINombrado (Item)
+Disparador	
+El tipo de evento que desencadena la evolución hacia esta especie Pokémon.
+
+Recurso APIcon nombre (Disparador de evolución)
+Género	
+El id del género de la especie Pokémon en evolución debe ser para evolucionar en esta especie Pokémon.
+
+enteros
+held_ítem	
+El objeto que la especie Pokémon en evolución debe tener en la mano durante el evento desencadenante de evolución para evolucionar a esta especie Pokémon.
+
+Recurso APINombrado (Item)
+known_	
+El movimiento que debe ser conocido por la especie Pokémon en evolución durante el evento desencadenante de evolución para evolucionar a esta especie Pokémon.
+
+Recurso APINombrado (Mover)
+known_move_tipo	
+La especie Pokémon en evolución debe conocer un movimiento con este tipo durante el evento de activación evolutiva para poder evolucionar a esta especie.
+
+Recurso APINombrado (Tipo)
+Ubicación	
+El lugar donde debe activarse la evolución.
+
+Recurso APInombrado (Ubicación)
+min_ nivel	
+El nivel mínimo requerido de la especie Pokémon en evolución para evolucionar a esta especie.
+
+enteros
+min_felicidad	
+El nivel mínimo requerido de felicidad es que la especie Pokémon evolucione para evolucionar hacia esta especie.
+
+enteros
+min_belleza	
+El nivel mínimo requerido de belleza es que la especie Pokémon evoluciona para evolucionar hacia esta especie.
+
+enteros
+min_afecto	
+El nivel mínimo requerido de afecto para que la especie Pokémon evolucione a esta especie.
+
+enteros
+needs_multijugador	
+Si es necesario o no el modo multijugador de enlace para evolucionar hacia esta especie Pokémon (por ejemplo, Círculo de la Unión).
+
+Booleano
+needs_overworld_lluvia	
+Ya sea que esté lloviendo en el mundo exterior para que esta especie de Pokémon evolucione o no.
+
+Booleano
+party_especies	
+Las especies de Pokémon que deben estar en el grupo de los jugadores para que la especie evolutiva evolucione hacia esta especie de Pokémon.
+
+Recurso APINombrado (Especies Pokémon)
+party_tipo	
+El jugador debe tener un  Pokémon de este tipo en su grupo durante el evento de activación de evolución para que la especie evolucionante evolucione hacia esta especie.
+
+Recurso APINombrado (Tipo)
+relative_physical_estadística	
+La relación requerida entre las estadísticas de Ataque y Defensa del Pokémon. 1 significa Ataque > Defensa. 0 significa Ataque = Defensa. -1 significa Ataque < Defensa.
+
+enteros
+time_of_ día	
+La hora requerida del día. De día o de noche.
+
+Cuerda
+trade_especies	
+Especies Pokémon por las que este debe intercambiarse.
+
+Recurso APINombrado (Especies Pokémon)
+turn_upside_abajo	
+Si la 3DS necesita ser puesta patas arriba a medida que este Pokémon sube de nivel.
+
+Booleano
+Región	
+La región requerida en la que puede ocurrir esta evolución.
+
+Recurso APInombrado (región)
+base_forma	
+La forma requerida para la cual puede ocurrir esta evolución.
+
+Recurso APINombrado (Especies Pokémon)
+used_	
+El movimiento que debe ser utilizado por la especie Pokémon en evolución durante el evento de activación evolutiva para evolucionar a esta especie Pokémon.
+
+Recurso APINombrado (Mover)
+min_ move_ cuenta	
+El número mínimo de veces que se debe usar un movimiento para evolucionar a esta especie Pokémon.
+
+enteros
+min_escalones	
+El número mínimo de pasos que se deben dar para evolucionar hacia esta especie Pokémon.
+
+enteros
+min_damage_	
+La cantidad mínima de daño recibida durante la evolución activa el evento para evolucionar a esta especie Pokémon.
+
+enteros
+Desencadenantes de evolución (punto final)
+Los desencadenantes de evolución son los eventos y condiciones que hacen que un Pokémon evolucione. Consulta Bulbapedia para más detalles.Guías de juegos Pokémon
+
+GET https://pokeapi.co/api/v2/evolution-trigger/{id o nombre}/
+
+ID:1
+Nombre:"Subida de nivel"
+Nombre:"Sube de nivel"
+Nombre:"en"
+URL:"https://pokeapi.co/api/v2/language/9/"
+Nombre:"Ivysaur"
+URL:"https://pokeapi.co/api/v2/pokemon-species/2/"
+ Ver JSON en bruto (0,321 kB, 19 líneas)
+EvolutionTrigger (tipo)
+Nombre	Descripción	Tipo
+id	
+El identificador de este recurso.
+
+enteros
+Nombre	
+El nombre de este recurso.
+
+Cuerda
+Nombres	
+El nombre de este recurso aparece en diferentes idiomas.
+
+Nombre de la lista
+pokemon_especies	
+Una lista de especies de Pokémon que resultan de este desencadenante evolutivo.
+
+lista Recursos APINombrados (Especies Pokémon)
+Partidos (grupo)
+Generaciones (punto final)
+Una generación es un conjunto de juegos de Pokémon que los separa según los Pokémon que incluyen. En cada generación, se lanza un nuevo conjunto de Pokémon, Movimientos, Habilidades y Tipos que no existían en la generación anterior.
+
+GET https://pokeapi.co/api/v2/generation/{id o nombre}/
+
+ID:1
+Nombre:"Generación-I"
+Habilidades:
+Nombre:"Kanto"
+URL:"https://pokeapi.co/api/v2/region/1/"
+Nombre:"Golpe"
+URL:"https://pokeapi.co/api/v2/move/1/"
+Nombre:"Generación I"
+Nombre:"de"
+URL:"https://pokeapi.co/api/v2/language/6/"
+Nombre:"Bulbasaur"
+URL:"https://pokeapi.co/api/v2/pokemon-species/1/"
+Nombre:"normal"
+URL:"https://pokeapi.co/api/v2/type/1/"
+Nombre:"rojo-azul"
+URL:"https://pokeapi.co/api/v2/version-group/1/"
+ Ver JSON en bruto (0,772 kB, 42 líneas)
+Generación (tipo)
+Nombre	Descripción	Tipo
+id	
+El identificador de este recurso.
+
+enteros
+Nombre	
+El nombre de este recurso.
+
+Cuerda
+Habilidades	
+Una lista de habilidades que se introdujeron en esta generación.
+
+list NombreAPIResource (Habilidad)
+Nombres	
+El nombre de este recurso aparece en diferentes idiomas.
+
+Nombre de la lista
+main_región	
+La región principal viajó en esta generación.
+
+Recurso APInombrado (región)
+Movimientos	
+Una lista de movimientos que se introdujeron en esta generación.
+
+list NamedAPIResource (Move)
+pokemon_especies	
+Una lista de  especies de Pokémon que se introdujeron en esta generación.
+
+lista Recursos APINombrados (Especies Pokémon)
+Tipos	
+Una lista de tipos que se introdujeron en esta generación.
+
+lista Recurso APINombrado (Tipo)
+version_grupos	
+Una lista de grupos de versiones que se introdujeron en esta generación.
+
+lista llamadaAPIResource (Grupo de versiones)
+Pokedexes (punto final)
+Una Pokédex es un dispositivo electrónico de enciclopedia portátil; uno que sea capaz de registrar y retener información de los distintos Pokémon de una región determinada, excepto el dex nacional y algunos dexes menores relacionados con partes de una región. Véase Bulbapedia para más detalles.Guías de juegos Pokémon
+
+GET https://pokeapi.co/api/v2/pokedex/{id o nombre}/
+
+ID:2
+Nombre:"Kanto"
+is_main_series:Cierto
+Descripción:"Podredumbre/Blau/Gelb Kanto Dex"
+Nombre:"de"
+URL:"https://pokeapi.co/api/v2/language/6/"
+Nombre:"Kanto"
+Nombre:"de"
+URL:"https://pokeapi.co/api/v2/language/6/"
+entry_number:1
+Nombre:"Bulbasaur"
+URL:"https://pokeapi.co/api/v2/pokemon-species/1/"
+Nombre:"Kanto"
+URL:"https://pokeapi.co/api/v2/region/1/"
+Nombre:"rojo-azul"
+URL:"https://pokeapi.co/api/v2/version-group/1/"
+ Ver JSON en bruto (0,809 kB, 42 líneas)
+Pokédex (tipo)
+Nombre	Descripción	Tipo
+id	
+El identificador de este recurso.
+
+enteros
+Nombre	
+El nombre de este recurso.
+
+Cuerda
+is_main_serie	
+Si esta Pokédex se originó o no en la serie principal de los videojuegos.
+
+Booleano
+Descripciones	
+La descripción de este recurso se enumera en diferentes idiomas.
+
+Descripción de la lista
+Nombres	
+El nombre de este recurso aparece en diferentes idiomas.
+
+Nombre de la lista
+pokemon_entradas	
+Una lista de Pokémon catalogados en esta Pokédex y sus índices.
+
+lista Entrada de Pokémon
+Región	
+La región para la que esta Pokédex cataloga Pokémon.
+
+Recurso APInombrado (región)
+version_grupos	
+Una lista de grupos de versiones para los que esta Pokédex es relevante.
+
+lista llamadaAPIResource (Grupo de versiones)
+PokemonEntry (tipo)
+Nombre	Descripción	Tipo
+entry_número	
+El índice de esta especie Pokémon dentro de la Pokédex.
+
+enteros
+pokemon_especies	
+Las especies Pokémon que se están encontrando.
+
+Recurso APINombrado (Especies Pokémon)
+Versión (endpoint)
+Versiones de los juegos, por ejemplo, Rojo, Azul o Amarillo.
+
+GET https://pokeapi.co/api/v2/version/{id o nombre}/
+
+ID:1
+Nombre:"Rojo"
+Nombre:"Podredumbre"
+Nombre:"de"
+URL:"https://pokeapi.co/api/v2/language/6/"
+Nombre:"rojo-azul"
+URL:"https://pokeapi.co/api/v2/version-group/1/"
+ Ver JSON en bruto (0,292 kB, 17 líneas)
+Versión (tipo)
+Nombre	Descripción	Tipo
+id	
+El identificador de este recurso.
+
+enteros
+Nombre	
+El nombre de este recurso.
+
+Cuerda
+Nombres	
+El nombre de este recurso aparece en diferentes idiomas.
+
+Nombre de la lista
+version_grupo	
+El grupo de versiones al que pertenece esta versión.
+
+API Resource Named (Grupo de Versiones)
+Grupos de versiones (endpoint)
+Los grupos de versiones categorizan versiones muy similares de los juegos.
+
+GET https://pokeapi.co/api/v2/version-group/{id o name}/
+
+ID:1
+Nombre:"rojo-azul"
+Orden:1
+Nombre:"Generación-I"
+URL:"https://pokeapi.co/api/v2/generation/1/"
+Nombre:"Subida de nivel"
+URL:"https://pokeapi.co/api/v2/move-learn-method/1/"
+Nombre:"Kanto"
+URL:"https://pokeapi.co/api/v2/pokedex/2/"
+Nombre:"Kanto"
+URL:"https://pokeapi.co/api/v2/region/1/"
+Nombre:"Rojo"
+URL:"https://pokeapi.co/api/v2/version/1/"
+ Ver JSON en bruto (0,605 kB, 33 líneas)
+VersionGroup (tipo)
+Nombre	Descripción	Tipo
+id	
+El identificador de este recurso.
+
+enteros
+Nombre	
+El nombre de este recurso.
+
+Cuerda
+Orden	
+Orden para clasificar. Casi por fecha de lanzamiento, salvo que las versiones similares están agrupadas.
+
+enteros
+generación	
+La generación en la que se introdujo esta versión.
+
+Recurso APINombrado (Generación)
+move_learn_métodos	
+Una lista de métodos en los que los Pokémon pueden aprender movimientos en este grupo de versiones.
+
+Lista NamedAPIResource (Método MoveLearn)
+Pokédex	
+Una lista de Pokédexes presentada en este grupo de versiones.
+
+lista llamadaAPIResource (Pokedex)
+Regiones	
+Una lista de regiones que se pueden visitar en este grupo de versiones.
+
+lista NombreAPI Resource (Región)
+Versiones	
+Las versiones que posee este grupo de versiones.
+
+lista NombreAPIResource (Versión)
+Elementos (grupo)
+Ítem (punto final)
+Un objeto es un objeto en los juegos que el jugador puede recoger, guardar en su bolsa y usar de alguna manera. Tienen varios usos, incluyendo curación, potenciación, ayuda para capturar  Pokémon o acceder a una nueva zona.Guías de juegos Pokémon
+
+GET https://pokeapi.co/api/v2/item/{id o nombre}/
+
+ID:1
+Nombre:"Béisbol maestro"
+Coste:0
+fling_power:10
+Nombre:"Estremecimiento"
+URL:"https://pokeapi.co/api/v2/item-fling-effect/7/"
+Nombre:"sostenible"
+URL:"https://pokeapi.co/api/v2/item-attribute/5/"
+Nombre:"bolas estándar"
+URL:"https://pokeapi.co/api/v2/item-category/34/"
+Efecto:"Usado en batalla : [Atrapa]{mechanic:catch} un Pokémon salvaje sin falta. Si se usa en una batalla de entrenadores, no pasa nada y la pelota se pierde."
+short_effect:"Atrapa un Pokémon salvaje cada vez."
+Nombre:"en"
+URL:"https://pokeapi.co/api/v2/language/9/"
+Texto:"La mejor Poké Ball con el máximo nivel de rendimiento. Con él, atraparás a cualquier Pokémon salvaje sin falta."
+Nombre:"x-y"
+URL:"https://pokeapi.co/api/v2/version-group/15/"
+Nombre:"en"
+URL:"https://pokeapi.co/api/v2/language/9/"
+game_index:1
+Nombre:"Generación-VI"
+URL:"https://pokeapi.co/api/v2/generation/6/"
+Nombre:"Master Ball"
+Nombre:"en"
+URL:"https://pokeapi.co/api/v2/language/9/"
+Por defecto:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/master-ball.png"
+Nombre:"Chansey"
+URL:"https://pokeapi.co/api/v2/pokemon/113/"
+URL:"https://pokeapi.co/api/v2/evolution-chain/1/"
+ Ver JSON en bruto (2,094 kB, 84 líneas)
+Elemento (tipo)
+Nombre	Descripción	Tipo
+id	
+El identificador de este recurso.
+
+enteros
+Nombre	
+El nombre de este recurso.
+
+Cuerda
+Coste	
+El precio de este artículo en las tiendas.
+
+enteros
+fling_poder	
+El poder del movimiento Lanzar cuando se usa con este objeto.
+
+enteros
+fling_efecto	
+El efecto del movimiento Lanzar cuando se usa con este objeto.
+
+Recurso APINombrado (Efecto de Lanzamientode Objetos)
+Atributos	
+Una lista de atributos que tiene este objeto.
+
+list NamedAPIResource (Atributo de Elemento)
+Categoría	
+La categoría de objetos en la que pertenece este objeto.
+
+Recurso APINombrado (Categoría de Elemento)
+effect_entradas	
+El efecto de esta habilidad se enumera en diferentes idiomas.
+
+lista Efecto verboso
+flavor_text_entradas	
+El texto de ambientación de esta habilidad se listaba en diferentes idiomas.
+
+lista VersiónGrupoTexto de Sabor
+game_índices	
+Una lista de índices de juego relevantes para este elemento por generación.
+
+lista Índice de Juegosde Generación
+Nombres	
+El nombre de este objeto aparece en diferentes idiomas.
+
+Nombre de la lista
+sprites	
+Un conjunto de sprites usados para representar este objeto en el juego.
+
+Sprites de objetos
+held_by_pokémon	
+Una lista de Pokémon que podrían encontrarse en la naturaleza que contienen este objeto.
+
+Pokémon portadorde objetos de la lista
+baby_trigger_	
+Una cadena de evolución que este objeto necesita para producir un baio durante el apareamiento.
+
+APIResource (EvolutionChain)
+Máquinas	
+Una lista de las máquinas relacionadas con este artículo.
+
+Detalle de laversión de la máquina
+Sprites de objetos (tipo)
+Nombre	Descripción	Tipo
+Por defecto	
+La representación predeterminada de este objeto.
+
+Cuerda
+PokémémPoseObjeto (tipo)
+Nombre	Descripción	Tipo
+Pokémon	
+El Pokémon que sostiene este objeto.
+
+Recurso APIllamado (Pokémon)
+version_ detalles	
+Los detalles de la versión en la que este objeto está guardado por el Pokémon.
+
+Detalle de la versión delPokémon con el portadorde objetos de la lista
+ItemHolderPokemonVersionDetail (tipo)
+Nombre	Descripción	Tipo
+Rareza	
+¿Con qué frecuencia este Pokémon sostiene este objeto en esta versión?
+
+enteros
+Versión	
+La versión en la que este objeto está guardado por el Pokémon.
+
+Recurso APINombrado (Versión)
+Atributos de los elementos (punto final)
+Los atributos de los objetos definen aspectos particulares de los objetos, por ejemplo, "utilizables en batalla" o "consumibles".
+
+GET https://pokeapi.co/api/v2/item-attribute/{id o nombre}/
+
+ID:1
+Nombre:"numerable"
+Descripción:"Tiene un conteo en la bolsa"
+Nombre:"en"
+URL:"https://pokeapi.co/api/v2/language/9/"
+Nombre:"Béisbol maestro"
+URL:"https://pokeapi.co/api/v2/item/1/"
+Nombre:"Numerable"
+Nombre:"en"
+URL:"https://pokeapi.co/api/v2/language/9/"
+ Ver JSON en bruto (0,495 kB, 28 líneas)
+ElementAttribute (tipo)
+Nombre	Descripción	Tipo
+id	
+El identificador de este recurso.
+
+enteros
+Nombre	
+El nombre de este recurso.
+
+Cuerda
+Elementos	
+Una lista de elementos que tienen esta característica.
+
+lista Recurso APINombrado (Ítem)
+Nombres	
+El nombre de este atributo del objeto aparece en diferentes idiomas.
+
+Nombre de la lista
+Descripciones	
+La descripción de este atributo del elemento se enumera en diferentes idiomas.
+
+Descripción de la lista
+Categorías de artículos (endpoint)
+Las categorías de objetos determinan dónde se colocarán los objetos en la bolsa del jugador.
+
+GET https://pokeapi.co/api/v2/item-category/{id o nombre}/
+
+ID:1
+Nombre:"mejoras de estadísticas"
+Nombre:"Guardia-especialización"
+URL:"https://pokeapi.co/api/v2/item/55/"
+Nombre:"Potenciadores de estadísticas"
+Nombre:"en"
+URL:"https://pokeapi.co/api/v2/language/9/"
+Nombre:"batalla"
+URL:"https://pokeapi.co/api/v2/item-pocket/7/"
+ Ver JSON en bruto (0,405 kB, 23 líneas)
+CategoríaÍtemTipo (tipo)
+Nombre	Descripción	Tipo
+id	
+El identificador de este recurso.
+
+enteros
+Nombre	
+El nombre de este recurso.
+
+Cuerda
+Elementos	
+Una lista de elementos que forman parte de esta categoría.
+
+lista Recurso APINombrado (Ítem)
+Nombres	
+El nombre de esta categoría de artículo aparece en diferentes idiomas.
+
+Nombre de la lista
+bolsillo	
+Los objetos de bolsillo de esta categoría se incluirían.
+
+Recurso APINombrado (Bolsillo de Objetos)
+Efectos de lanzamiento de objetos (punto final)
+Los distintos efectos del movimiento "Lanzar" cuando se usa con diferentes objetos.
+
+GET https://pokeapi.co/api/v2/item-fling-effect/{id o nombre}/
+
+ID:1
+Nombre:"Muy venenoso"
+Efecto:"Envenena gravemente al objetivo."
+Nombre:"en"
+URL:"https://pokeapi.co/api/v2/language/9/"
+Nombre:"orbe tóxico"
+URL:"https://pokeapi.co/api/v2/item/249/"
+ Ver JSON en bruto (0,336 kB, 19 líneas)
+ItemFlingEffect (tipo)
+Nombre	Descripción	Tipo
+id	
+El identificador de este recurso.
+
+enteros
+Nombre	
+El nombre de este recurso.
+
+Cuerda
+effect_entradas	
+El resultado de este efecto de fling se enumera en diferentes idiomas.
+
+lista Efecto
+Elementos	
+Una lista de objetos que tienen este efecto de aventura.
+
+lista Recurso APINombrado (Ítem)
+Bolsillos de objetos (punto final)
+Bolsillos dentro de la bolsa del jugador usados para guardar objetos por categoría.
+
+GET https://pokeapi.co/api/v2/item-pocket/{id o nombre}/
+
+ID:1
+Nombre:"misceláneos"
+Nombre:"coleccionables"
+URL:"https://pokeapi.co/api/v2/item-category/9/"
+Nombre:"Artículos"
+Nombre:"en"
+URL:"https://pokeapi.co/api/v2/language/9/"
+ Ver JSON en bruto (0,312 kB, 19 líneas)
+ItemPocket (tipo)
+Nombre	Descripción	Tipo
+id	
+El identificador de este recurso.
+
+enteros
+Nombre	
+El nombre de este recurso.
+
+Cuerda
+Categorías	
+Una lista de categorías de artículos relevantes para este bolsillo de artículos.
+
+lista Recursos APINombrados (Categoría de Artículo)
+Nombres	
+El nombre de este recurso aparece en diferentes idiomas.
+
+Nombre de la lista
+Ubicaciones (grupo)
+Ubicaciones (punto final)
+Lugares que se pueden visitar dentro de los juegos. Las ubicaciones ocupan porciones considerables de regiones, como ciudades o rutas.
+
+GET https://pokeapi.co/api/v2/location/{id o nombre}/
+
+ID:1
+Nombre:"Ciudad de Canalave"
+Nombre:"Sinnoh"
+URL:"https://pokeapi.co/api/v2/region/4/"
+Nombre:"Ciudad de Canalave"
+Nombre:"en"
+URL:"https://pokeapi.co/api/v2/language/9/"
+game_index:7
+Nombre:"Generación-IV"
+URL:"https://pokeapi.co/api/v2/generation/4/"
+Nombre:"Área de la ciudad de Canalave"
+URL:"https://pokeapi.co/api/v2/location-area/1/"
+ Ver JSON en bruto (0,6 kB, 32 líneas)
+Ubicación (tipo)
+Nombre	Descripción	Tipo
+id	
+El identificador de este recurso.
+
+enteros
+Nombre	
+El nombre de este recurso.
+
+Cuerda
+Región	
+La región en la que se encuentra este lugar.
+
+Recurso APInombrado (región)
+Nombres	
+El nombre de este recurso aparece en diferentes idiomas.
+
+Nombre de la lista
+game_índices	
+Una lista de índices de juego relevantes para esta ubicación por generación.
+
+lista Índice de Juegosde Generación
+Zonas	
+Zonas que se pueden encontrar dentro de esta ubicación.
+
+lista NombreAPIResource (Área de Localización)
+Áreas de localización (punto final)
+Las áreas de localización son secciones de áreas, como los suelos de un edificio o cueva. Cada zona tiene su propio conjunto de posibles  encuentros Pokémon.Guías de juegos Pokémon
+
+GET https://pokeapi.co/api/v2/location-area/{id o nombre}/
+
+ID:1
+Nombre:"Área de la ciudad de Canalave"
+game_index:1
+Nombre:"viejo rod"
+URL:"https://pokeapi.co/api/v2/encounter-method/2/"
+Nombre:"Ciudad de Canalave"
+URL:"https://pokeapi.co/api/v2/location/1/"
+Nombre:""
+Nombre:"en"
+URL:"https://pokeapi.co/api/v2/language/9/"
+Nombre:"Tentacool"
+URL:"https://pokeapi.co/api/v2/pokemon/72/"
+ Ver JSON en bruto (1,405 kB, 64 líneas)
+UbicaciónÁrea (tipo)
+Nombre	Descripción	Tipo
+id	
+El identificador de este recurso.
+
+enteros
+Nombre	
+El nombre de este recurso.
+
+Cuerda
+game_índice	
+El id interno de un recurso API dentro de los datos del juego.
+
+enteros
+encounter_method_ tarifas	
+Una lista de métodos en los que se pueden encontrar Pokémon en esta zona y la probabilidad de que ocurra según la versión del juego.
+
+lista Métodode EncuentroTasa
+Ubicación	
+La región en la que se encuentra esta ubicación.
+
+Recurso APInombrado (Ubicación)
+Nombres	
+El nombre de este recurso aparece en diferentes idiomas.
+
+Nombre de la lista
+pokemon_encuentros	
+Una lista de Pokémon que se pueden encontrar en esta zona junto con detalles específicos de la versión sobre el encuentro.
+
+lista Encuentro Pokémon
+EncounterMethodRate (tipo)
+Nombre	Descripción	Tipo
+encounter_método	
+El método en el que se pueden encontrar Pokémon en una zona...
+
+Recurso APInombrado (método Encounter)
+version_ detalles	
+La probabilidad de que el encuentro ocurra en una versión del juego.
+
+lista Detalles de la versióndel encuentro
+EncounterVersionDetails (tipo)
+Nombre	Descripción	Tipo
+Índice	
+La posibilidad de que ocurriera un encuentro.
+
+enteros
+Versión	
+La versión del juego en la que el encuentro puede ocurrir con la oportunidad dada.
+
+Recurso APINombrado (Versión)
+Encuentro Pokémon (tipo)
+Nombre	Descripción	Tipo
+Pokémon	
+El Pokémon que se está encontrando.
+
+Recurso APIllamado (Pokémon)
+version_ detalles	
+Una lista de versiones y encuentros con Pokémon que podrían ocurrir en el área de localización referenciada.
+
+lista Detalles del encuentrode versiones
+Áreas de Pal Park (punto final)
+Áreas utilizadas para agrupar encuentros Pokémon en Pal Park. Son como hábitats específicos de Pal Park.
+
+GET https://pokeapi.co/api/v2/pal-park-area/{id o nombre}/
+
+ID:1
+Nombre:"bosque"
+Nombre:"Bosque"
+Nombre:"en"
+URL:"https://pokeapi.co/api/v2/language/9/"
+base_score:30
+Valoración:50
+Nombre:"Caterpie"
+URL:"https://pokeapi.co/api/v2/pokemon-species/10/"
+ Ver JSON en bruto (0,403 kB, 23 líneas)
+PalParkArea (tipo)
+Nombre	Descripción	Tipo
+id	
+El identificador de este recurso.
+
+enteros
+Nombre	
+El nombre de este recurso.
+
+Cuerda
+Nombres	
+El nombre de este recurso aparece en diferentes idiomas.
+
+Nombre de la lista
+pokemon_encuentros	
+Una lista de Pokémon encontrados en la zona del parque de los Pal junto con detalles.
+
+lista de especies de PalPark Encounter
+PalParkEncounterSpecies (tipo)
+Nombre	Descripción	Tipo
+base_ partitura	
+La puntuación base que se otorga al jugador cuando este Pokémon es capturado durante una partida de parque de amigos.
+
+enteros
+Índice	
+La tasa base para encontrarse con este Pokémon en esta zona de parque amigo.
+
+enteros
+pokemon_especies	
+Las especies Pokémon que se están encontrando.
+
+Recurso APINombrado (Especies Pokémon)
+Regiones (punto final)
+Una región es un área organizada del mundo Pokémon. La mayoría de las veces, la principal diferencia entre regiones son las especies de Pokémon que se pueden encontrar en ellas.Guías de juegos Pokémon
+
+GET https://pokeapi.co/api/v2/region/{id o nombre}/
+
+ID:1
+Nombre:"Kanto"
+Nombre:"Ciudad Celadon"
+URL:"https://pokeapi.co/api/v2/location/67/"
+Nombre:"Generación-I"
+URL:"https://pokeapi.co/api/v2/generation/1/"
+Nombre:"Kanto"
+Nombre:"de"
+URL:"https://pokeapi.co/api/v2/language/6/"
+Nombre:"Kanto"
+URL:"https://pokeapi.co/api/v2/pokedex/2/"
+Nombre:"rojo-azul"
+URL:"https://pokeapi.co/api/v2/version-group/1/"
+ Ver JSON en bruto (0,649 kB, 35 líneas)
+Región (tipo)
+Nombre	Descripción	Tipo
+id	
+El identificador de este recurso.
+
+enteros
+Ubicaciones	
+Una lista de lugares que se pueden encontrar en esta región.
+
+lista NombreAPIResource (Ubicación)
+Nombre	
+El nombre de este recurso.
+
+Cuerda
+Nombres	
+El nombre de este recurso aparece en diferentes idiomas.
+
+Nombre de la lista
+main_generación	
+La generación en la que se introdujo esta región.
+
+Recurso APINombrado (Generación)
+Pokédex	
+Una lista de pokédexes que catalogan  Pokémon en esta región.
+
+lista llamadaAPIResource (Pokedex)
+version_grupos	
+Una lista de grupos de versiones donde se puede visitar esta región.
+
+lista llamadaAPIResource (Grupo de versiones)
+Máquinas (grupo)
+Máquinas (punto final)
+Las máquinas representan objetos que enseñan movimientos a los Pokémon. Varían de una versión a otra, por lo que no es seguro que una sola MT o HM específica corresponda a una sola máquina.
+
+GET https://pokeapi.co/api/v2/machine/{id}/
+
+ID:1
+Nombre:"TM01"
+URL:"https://pokeapi.co/api/v2/item/305/"
+Nombre:"mega-puñetazo"
+URL:"https://pokeapi.co/api/v2/move/5/"
+Nombre:"rojo-azul"
+URL:"https://pokeapi.co/api/v2/version/1/"
+ Ver JSON en bruto (0,289 kB, 15 líneas)
+Máquina (tipo)
+Nombre	Descripción	Tipo
+id	
+El identificador de este recurso.
+
+enteros
+Ítem	
+El elemento TM o HM que corresponde a esta máquina.
+
+Recurso APINombrado (Item)
+¡Muévete	
+El movimiento que enseña esta máquina.
+
+Recurso APINombrado (Mover)
+version_grupo	
+El grupo de versiones al que se aplica esta máquina.
+
+API Resource Named (Grupo de Versiones)
+Movimientos (grupo)
+Movimientos (final)
+Los movimientos son las habilidades de los Pokémon en combate. En combate, un Pokémon usa un movimiento por turno. Algunos movimientos (incluidos los aprendidos por Máquina Oculta) también pueden usarse fuera de la batalla, normalmente para eliminar obstáculos o explorar nuevas áreas.Guías de juegos Pokémon
+
+GET https://pokeapi.co/api/v2/move/{id o nombre}/
+
+ID:1
+Nombre:"Golpe"
+Precisión:100
+effect_chance:null
+pp:35
+Prioridad:0
+Poder:40
+Nombre:"doble bofetada"
+URL:"https://pokeapi.co/api/v2/move/3/"
+Nombre:"cabezazo"
+URL:"https://pokeapi.co/api/v2/move/29/"
+Nombre:"Finta-ataque"
+URL:"https://pokeapi.co/api/v2/move/185/"
+use_after:null
+use_before:null
+use_after:null
+Nombre:"Duro"
+URL:"https://pokeapi.co/api/v2/contest-type/5/"
+URL:"https://pokeapi.co/api/v2/contest-effect/1/"
+Nombre:"físico"
+URL:"https://pokeapi.co/api/v2/move-damage-class/2/"
+Efecto:"Inflige [daño normal]{mecánica:daño regular}."
+short_effect:"Inflige daño normal sin efecto adicional."
+Nombre:"en"
+URL:"https://pokeapi.co/api/v2/language/9/"
+effect_changes:
+Nombre:"Generación-I"
+URL:"https://pokeapi.co/api/v2/generation/1/"
+Nombre:"Pound"
+Nombre:"en"
+URL:"https://pokeapi.co/api/v2/language/9/"
+past_values:
+stat_changes:
+URL:"https://pokeapi.co/api/v2/super-contest-effect/5/"
+Nombre:"Pokémon seleccionados"
+URL:"https://pokeapi.co/api/v2/move-target/10/"
+Nombre:"normal"
+URL:"https://pokeapi.co/api/v2/type/1/"
+Nombre:"Clefairy"
+URL:"https://pokeapi.co/api/v2/pokemon/35/"
+flavor_text:"Golpea con el proa piernas o cola."
+URL:"https://pokeapi.co/api/v2/language/9/"
+Nombre:"en"
+URL:"https://pokeapi.co/api/v2/version-group/3/"
+Nombre:"Oro-plata"
+ Ver JSON en bruto (2,714 kB, 119 líneas)
+Movimiento (tipo)
+Nombre	Descripción	Tipo
+id	
+El identificador de este recurso.
+
+enteros
+Nombre	
+El nombre de este recurso.
+
+Cuerda
+Precisión	
+El valor porcentual de la probabilidad de éxito de esta medida.
+
+enteros
+effect_ casualidad	
+El valor porcentual de la probabilidad de que ocurra este efecto se mueva.
+
+enteros
+pp	
+Powerpoints. El número de veces que se puede usar este movimiento.
+
+enteros
+Prioridad	
+Un valor entre -8 y 8. Establece el orden en que se ejecutan los movimientos durante la batalla. Véase Bulbapedia para más detalles.
+
+enteros
+Poder	
+El poder base de este movimiento tiene un valor de 0 si no tiene un poder base.
+
+enteros
+contest_combos	
+Un detalle de combos normales y de super concurso que requieren este movimiento.
+
+Conjuntos de Combosde Concurso
+contest_tipo	
+El tipo de atractivo que este movimiento aporta a un Pokémon cuando se usa en un concurso.
+
+Recurso APINombrado (Tipo de Concurso)
+contest_efecto	
+El efecto que tiene el movimiento cuando se usa en un combate.
+
+Recurso API (Efecto de Concurso)
+damage_clase	
+El tipo de daño que el movimiento inflige al objetivo, por ejemplo, físico.
+
+Recurso APINombrado (Clase de Dañode Movimiento)
+effect_entradas	
+El efecto de este movimiento se enumera en diferentes idiomas.
+
+lista Efecto verboso
+effect_cambios	
+La lista de efectos anteriores que este movimiento ha tenido en los grupos de versiones de los juegos.
+
+lista Cambio de efectode habilidad
+learned_by_pokémon	
+Lista de  Pokémon que pueden aprender el movimiento
+
+lista LlamadaAPIResource (Pokémon)
+flavor_text_entradas	
+El texto de ambientación de este movimiento se enumera en diferentes idiomas.
+
+lista MovimientoTexto de sabor
+generación	
+La generación en la que se introdujo este traslado.
+
+Recurso APINombrado (Generación)
+Máquinas	
+Una lista de las máquinas que enseñan este movimiento.
+
+Detalle de laversión de la máquina
+Meta	
+Metadatos sobre este movimiento
+
+Movermetadatos
+Nombres	
+El nombre de este recurso aparece en diferentes idiomas.
+
+Nombre de la lista
+past_valores	
+Una lista de cambios en el valor de los recursos de movimiento según los grupos de versiones del juego.
+
+lista Valores de estadísticasde movimientospasados
+stat_cambios	
+Una lista de estadísticas que afecta este movimiento y cuánto les afecta a ellos.
+
+lista Cambio de estadísticade movimiento
+super_contest_efecto	
+El efecto que tiene el movimiento cuando se usa en un superconcurso.
+
+API Resource (Efecto SuperContest)
+Objetivo	
+El tipo de objetivo que recibirá los efectos del ataque.
+
+Recurso APINombrado (Target de Movimientos)
+Tipo	
+El tipo elemental de este movimiento.
+
+Recurso APINombrado (Tipo)
+ContestComboSets (tipo)
+Nombre	Descripción	Tipo
+Normal	
+Un detalle de los movimientos de este movimiento puede usarse antes o después, otorgando puntos adicionales de apelación en los concursos.
+
+Detalle de combosde concurso
+Súper	
+Un detalle de los movimientos de este movimiento puede usarse antes o después, otorgando puntos adicionales de apelación en los superconcursos.
+
+Detalle de combosde concurso
+ContestComboDetail (tipo)
+Nombre	Descripción	Tipo
+use_before	
+A list of moves to use before this move.
+
+list NamedAPIResource (Move)
+use_after	
+A list of moves to use after this move.
+
+list NamedAPIResource (Move)
+MoveFlavorText (type)
+Name	Description	Type
+flavor_text	
+The localized flavor text for an api resource in a specific language.
+
+string
+language	
+The language this name is in.
+
+NamedAPIResource (Language)
+version_group	
+The version group that uses this flavor text.
+
+NamedAPIResource (VersionGroup)
+MoveMetaData (type)
+Name	Description	Type
+ailment	
+The status ailment this move inflicts on its target.
+
+NamedAPIResource (MoveAilment)
+category	
+The category of move this move falls under, e.g. damage or ailment.
+
+NamedAPIResource (MoveCategory)
+min_hits	
+The minimum number of times this move hits. Null if it always only hits once.
+
+integer
+max_hits	
+The maximum number of times this move hits. Null if it always only hits once.
+
+integer
+min_turns	
+The minimum number of turns this move continues to take effect. Null if it always only lasts one turn.
+
+integer
+max_turns	
+The maximum number of turns this move continues to take effect. Null if it always only lasts one turn.
+
+integer
+drain	
+HP drain (if positive) or Recoil damage (if negative), in percent of damage done.
+
+integer
+healing	
+The amount of hp gained by the attacking Pokemon, in percent of it's maximum HP.
+
+integer
+crit_rate	
+Critical hit rate bonus.
+
+integer
+ailment_chance	
+The likelihood this attack will cause an ailment.
+
+integer
+flinch_chance	
+The likelihood this attack will cause the target  Pokémon to flinch.
+
+integer
+stat_chance	
+The likelihood this attack will cause a stat change in the target Pokémon.
+
+integer
+MoveStatChange (type)
+Name	Description	Type
+change	
+The amount of change.
+
+integer
+stat	
+The stat being affected.
+
+NamedAPIResource (Stat)
+PastMoveStatValues (type)
+Name	Description	Type
+accuracy	
+The percent value of how likely this move is to be successful.
+
+integer
+effect_chance	
+The percent value of how likely it is this moves effect will take effect.
+
+integer
+power	
+The base power of this move with a value of 0 if it does not have a base power.
+
+integer
+pp	
+Power points. The number of times this move can be used.
+
+integer
+effect_entries	
+The effect of this move listed in different languages.
+
+list VerboseEffect
+type	
+The elemental type of this move.
+
+NamedAPIResource (Type)
+version_group	
+The version group in which these move stat values were in effect.
+
+NamedAPIResource (VersionGroup)
+Move Ailments (endpoint)
+Move Ailments are status conditions caused by moves used during battle. See Bulbapedia for greater detail.
+
+GET https://pokeapi.co/api/v2/move-ailment/{id or name}/
+
+id:1
+name:"paralysis"
+name:"thunder-punch"
+url:"https://pokeapi.co/api/v2/move/9/"
+name:"Paralysis"
+name:"en"
+url:"https://pokeapi.co/api/v2/language/9/"
+ Ver JSON en bruto (0,308 kB, 19 líneas)
+MoveAilment (tipo)
+Nombre	Descripción	Tipo
+id	
+El identificador de este recurso.
+
+enteros
+Nombre	
+El nombre de este recurso.
+
+Cuerda
+Movimientos	
+Una lista de movimientos que causan esta dolencia.
+
+list NamedAPIResource (Move)
+Nombres	
+El nombre de este recurso aparece en diferentes idiomas.
+
+Nombre de la lista
+Estilos de Combate de Movimiento (final)
+Estilos de movimientos cuando se usan en el Palacio de Batalla. Véase Bulbapedia para más detalles.
+
+GET https://pokeapi.co/api/v2/move-battle-style/{id o nombre}/
+
+ID:1
+Nombre:"ataque"
+Nombre:"Ataque"
+Nombre:"en"
+URL:"https://pokeapi.co/api/v2/language/9/"
+ Ver JSON en bruto (0,192 kB, 13 líneas)
+MoveBattleStyle (tipo)
+Nombre	Descripción	Tipo
+id	
+El identificador de este recurso.
+
+enteros
+Nombre	
+El nombre de este recurso.
+
+Cuerda
+Nombres	
+El nombre de este recurso aparece en diferentes idiomas.
+
+Nombre de la lista
+Categorías de movimientos (endpoint)
+Categorías muy generales que agrupan de forma laxa los efectos de movimiento.
+
+GET https://pokeapi.co/api/v2/move-category/{id o nombre}/
+
+ID:1
+Nombre:"dolencia"
+Descripción:"Sin daños; inflige estado de enfermedad"
+Nombre:"en"
+URL:"https://pokeapi.co/api/v2/language/9/"
+Nombre:"canta"
+URL:"https://pokeapi.co/api/v2/move/47/"
+ Ver JSON en bruto (0,337 kB, 19 líneas)
+MoveCategory (tipo)
+Nombre	Descripción	Tipo
+id	
+El identificador de este recurso.
+
+enteros
+Nombre	
+El nombre de este recurso.
+
+Cuerda
+Movimientos	
+Una lista de movimientos que entran en esta categoría.
+
+list NamedAPIResource (Move)
+Descripciones	
+La descripción de este recurso se enumera en diferentes idiomas.
+
+Descripción de la lista
+Clases de daño de movimiento (punto final)
+Las clases de daño que los movimientos pueden tener, por ejemplo, físico, especial o no dañino.
+
+GET https://pokeapi.co/api/v2/move-damage-class/{id o nombre}/
+
+ID:1
+Nombre:"Estado"
+Descripción:"ãƒ€ãƒ¡ãƒ1/4ã' ̧ãªã""
+Nombre:"Ja"
+URL:"https://pokeapi.co/api/v2/language/1/"
+Nombre:"Danza de espadas"
+url:"https://pokeapi.co/api/v2/move/14/"
+ View raw JSON (0.349 kB, 19 lines)
+MoveDamageClass (type)
+Name	Description	Type
+id	
+The identifier for this resource.
+
+integer
+name	
+The name for this resource.
+
+string
+descriptions	
+The description of this resource listed in different languages.
+
+list Description
+moves	
+A list of moves that fall into this damage class.
+
+list NamedAPIResource (Move)
+names	
+The name of this resource listed in different languages.
+
+list Name
+Move Learn Methods (endpoint)
+Methods by which Pokémon can learn moves.Pokémon Game Guides
+
+GET https://pokeapi.co/api/v2/move-learn-method/{id or name}/
+
+id:1
+name:"level-up"
+Nombre:"Sube de nivel"
+Nombre:"de"
+URL:"https://pokeapi.co/api/v2/language/6/"
+Descripción:"Wird gelernt, wenn ein  Pokémon ein bestimmtes Level erreicht."
+Nombre:"de"
+URL:"https://pokeapi.co/api/v2/language/6/"
+Nombre:"rojo-azul"
+URL:"https://pokeapi.co/api/v2/version-group/1/"
+ Ver JSON en bruto (0,548 kB, 28 líneas)
+MoveLearnMethod (tipo)
+Nombre	Descripción	Tipo
+id	
+El identificador de este recurso.
+
+enteros
+Nombre	
+El nombre de este recurso.
+
+Cuerda
+Descripciones	
+La descripción de este recurso se enumera en diferentes idiomas.
+
+Descripción de la lista
+Nombres	
+El nombre de este recurso aparece en diferentes idiomas.
+
+Nombre de la lista
+version_grupos	
+Una lista de grupos de versiones donde se pueden aprender movimientos mediante este método.
+
+lista llamadaAPIResource (Grupo de versiones)
+Objetivos de movimiento (punto final)
+Los movimientos de los objetivos pueden dirigirse durante la batalla. Los objetivos pueden ser Pokémon, entornos u otros movimientos.
+
+GET https://pokeapi.co/api/v2/move-target/{id o nombre}/
+
+ID:1
+Nombre:"movimiento específico"
+Descripción:"Eine spezifische Fähigkeit. Wie diese Fähigkeit genutzt wird, hängt von den genutzten Fähigkeiten ab."
+Nombre:"de"
+URL:"https://pokeapi.co/api/v2/language/6/"
+Nombre:"Contra"
+URL:"https://pokeapi.co/api/v2/move/68/"
+Nombre:"Spezifische Fähigkeit"
+Nombre:"de"
+URL:"https://pokeapi.co/api/v2/language/6/"
+ Ver JSON en bruto (0,592 kB, 28 líneas)
+MoveTarget (tipo)
+Nombre	Descripción	Tipo
+id	
+El identificador de este recurso.
+
+enteros
+Nombre	
+El nombre de este recurso.
+
+Cuerda
+Descripciones	
+La descripción de este recurso se enumera en diferentes idiomas.
+
+Descripción de la lista
+Movimientos	
+Una lista de movimientos dirigidos a este objetivo.
+
+list NamedAPIResource (Move)
+Nombres	
+El nombre de este recurso aparece en diferentes idiomas.
+
+Nombre de la lista
+Pokémon (grupo)
+Habilidades (punto final)
+Las habilidades proporcionan efectos pasivos para los Pokémon en batalla o en el mundo exterior. Los Pokémon tienen múltiples habilidades posibles, pero solo pueden tener una a la vez. Consulta Bulbapedia para más detalles.
+
+GET https://pokeapi.co/api/v2/ability/{id o nombre}/
+
+ID:1
+Nombre:"hedor"
+is_main_series:Cierto
+Nombre:"Generación-III"
+URL:"https://pokeapi.co/api/v2/generation/3/"
+Nombre:"Hedor"
+Nombre:"en"
+URL:"https://pokeapi.co/api/v2/language/9/"
+Efecto:"Los movimientos de daño de este Pokémon tienen un 10% de probabilidad de que el objetivo [se sobresalte]{mecánica:estremezca} con cada golpe si no lo hacen ya como efecto secundario. Esta habilidad no se acumula con un objeto que se sostiene. Overworld: La tasa de encuentros salvajes se reduce a la mitad mientras este Pokémon es el primero en el grupo."
+short_effect:"Tiene un 10% de probabilidad de hacer que el Pokémon objetivo [se sobresalte]{mecánica:estremecimiento} con cada golpe."
+Nombre:"en"
+URL:"https://pokeapi.co/api/v2/language/9/"
+Guías de juegos Pokémon
+Nombre:"Negro-Blanco"
+URL:"https://pokeapi.co/api/v2/version-group/11/"
+flavor_text:"è‡ãã¦€€ç› ̧æ‰‹Œ ã²ã'‹ã'€ã€ã"ã ̈ãŒ'ã'‹ã€'"
+Nombre:"ja-kanji"
+URL:"https://pokeapi.co/api/v2/language/11/"
+Nombre:"x-y"
+URL:"https://pokeapi.co/api/v2/version-group/15/"
+is_hidden:Cierto
+Franja:3
+Nombre:"Tristeza"
+URL:"https://pokeapi.co/api/v2/pokemon/44/"
+ Ver JSON en bruto (1,896 kB, 68 líneas)
+Habilidad (tipo)
+Nombre	Descripción	Tipo
+id	
+El identificador de este recurso.
+
+enteros
+Nombre	
+El nombre de este recurso.
+
+Cuerda
+is_main_serie	
+Si esta habilidad se originó o no en la serie principal de los videojuegos.
+
+Booleano
+generación	
+La generación en la que se originó esta habilidad.
+
+Recurso APINombrado (Generación)
+Nombres	
+El nombre de este recurso aparece en diferentes idiomas.
+
+Nombre de la lista
+effect_entradas	
+El efecto de esta habilidad se enumera en diferentes idiomas.
+
+lista Efecto verboso
+effect_cambios	
+La lista de efectos anteriores que esta habilidad ha tenido en diferentes grupos de versiones.
+
+lista Cambio de efectode habilidad
+flavor_text_entradas	
+El texto de ambientación de esta habilidad se listaba en diferentes idiomas.
+
+lista Descripciónde habilidadesTexto
+Pokémon	
+Una lista de Pokémon que podrían tener esta habilidad.
+
+lista Pokémon de habilidades
+ChangeEfectoCapacidad (tipo)
+Nombre	Descripción	Tipo
+effect_entradas	
+El efecto anterior de esta habilidad se enumeraba en diferentes idiomas.
+
+lista Efecto
+version_grupo	
+El grupo de versiones en el que se originó el efecto anterior de esta habilidad.
+
+API Resource Named (Grupo de Versiones)
+TextoSabor de Habilidad (tipo)
+Nombre	Descripción	Tipo
+flavor_texto	
+El nombre localizado de un recurso API en un idioma específico.
+
+Cuerda
+Idioma	
+El idioma en el que está este recurso textual.
+
+Recurso APInombrado (Lenguaje))
+version_grupo	
+El grupo de versiones que utiliza este texto de ambientación.
+
+API Resource Named (Grupo de Versiones)
+Pokémon de habilidad (tipo)
+Nombre	Descripción	Tipo
+is_oculto	
+Si esto es o no una habilidad oculta para el Pokémon referenciado.
+
+Booleano
+Ranura	
+Los Pokémon tienen 3 'ranuras' de habilidad que contienen referencias a posibles habilidades que podrían tener. Esta es la ranura de esta habilidad para el Pokémon referenciado.
+
+enteros
+Pokémon	
+Al Pokémon al que podría pertenecer esta habilidad.
+
+Recurso APIllamado (Pokémon)
+Características (punto final)
+Las características indican qué estadística contiene el IV más alto de un Pokémon. La característica de un Pokémon se determina por el resto de su IV más alto dividido entre 5 (gene_modulo). Consulta Bulbapedia para más detalles.
+
+GET https://pokeapi.co/api/v2/characteristic/{id}/
+
+ID:1
+gene_modulo:0
+Nombre:"hp"
+URL:"https://pokeapi.co/api/v2/stat/1/"
+Descripción:"Le encanta comer"
+Nombre:"en"
+URL:"https://pokeapi.co/api/v2/language/9/"
+ Ver JSON en bruto (0,383 kB, 26 líneas)
+Característica (tipo)
+Nombre	Descripción	Tipo
+id	
+El identificador de este recurso.
+
+enteros
+gene_módulo	
+El resto de la estadística/IV más alta dividida por 5.
+
+enteros
+possible_valores	
+Los valores posibles de la estadística más alta que harían que un Pokémon reciba esta característica al dividirse entre 5.
+
+Entero de lista
+highest_stat	
+La estadística que da lugar a esta característica.
+
+Recurso APINombrado (Stat)
+Descripciones	
+Las descripciones de esta característica se listan en diferentes idiomas.
+
+Descripción de la lista
+Grupos de huevos (punto final)
+Los Grupos de Huevos son categorías que determinan qué Pokémon pueden cruzarse. Los Pokémon pueden pertenecer a uno o dos Grupos de Huevos. Consulta Bulbapedia para más detalles.Guías de juegos Pokémon
+
+GET https://pokeapi.co/api/v2/egg-group/{id o nombre}/
+
+ID:1
+Nombre:"monstruo"
+Nombre:"かいじゅう"
+Nombre:"Ja"
+URL:"https://pokeapi.co/api/v2/language/1/"
+Nombre:"Bulbasaur"
+URL:"https://pokeapi.co/api/v2/pokemon-species/1/"
+ Ver JSON en bruto (0,329 kB, 19 líneas)
+Grupo de huevos (tipo)
+Nombre	Descripción	Tipo
+id	
+El identificador de este recurso.
+
+enteros
+Nombre	
+El nombre de este recurso.
+
+Cuerda
+Nombres	
+El nombre de este recurso aparece en diferentes idiomas.
+
+Nombre de la lista
+pokemon_especies	
+Una lista de todas las especies de Pokémon que pertenecen a este grupo de huevos.
+
+lista Recursos APINombrados (Especies Pokémon)
+Géneros (punto final)
+Los géneros se introdujeron en la Segunda Generación con el propósito de criar Pokémon, pero también pueden dar lugar a diferencias visuales o incluso a diferentes líneas evolutivas. Consulta Bulbapedia para más detalles.
+
+GET https://pokeapi.co/api/v2/gender/{id o nombre}/
+
+ID:1
+Nombre:"femenino"
+Valoración:1
+Nombre:"Bulbasaur"
+URL:"https://pokeapi.co/api/v2/pokemon-species/1/"
+Nombre:"wormadam"
+URL:"https://pokeapi.co/api/v2/pokemon-species/413/"
+ Ver JSON en bruto (0,359 kB, 19 líneas)
+Género (tipo)
+Nombre	Descripción	Tipo
+id	
+El identificador de este recurso.
+
+enteros
+Nombre	
+El nombre de este recurso.
+
+Cuerda
+pokemon_species_ detalles	
+Una lista de especies de Pokémon que pueden tener este género y qué probabilidad hay de que lo sean.
+
+lista EspeciePokémonGénero
+required_for_evolución	
+Una lista de especies de Pokémon que requerían este género para que un Pokémon pudiera evolucionar hacia ellos.
+
+lista Recursos APINombrados (Especies Pokémon)
+PokémonEspecieGénero (tipo)
+Nombre	Descripción	Tipo
+Índice	
+La probabilidad de que este Pokémon fuera hembra, en octavos; o -1 para sin género.
+
+enteros
+pokemon_especies	
+Una especie de Pokémon que puede ser el género referenciado.
+
+Recurso APINombrado (Especies Pokémon)
+Tasas de crecimiento (punto final)
+Las tasas de crecimiento son la velocidad con la que los Pokémon suben de nivel a través de la experiencia. Consulta Bulbapedia para más detalles.
+
+GET https://pokeapi.co/api/v2/growth-rate/{id o nombre}/
+
+ID:1
+Nombre:"Lento"
+Fórmula:"\frac{5x^3}{4}"
+Descripción:"langsam"
+Nombre:"de"
+URL:"https://pokeapi.co/api/v2/language/6/"
+NIVEL:100
+Experiencia:1250000
+Nombre:"Gruñido"
+URL:"https://pokeapi.co/api/v2/pokemon-species/58/"
+ Ver JSON en bruto (0,444 kB, 26 líneas)
+GrowthRate (tipo)
+Nombre	Descripción	Tipo
+id	
+El identificador de este recurso.
+
+enteros
+Nombre	
+El nombre de este recurso.
+
+Cuerda
+Fórmula	
+La fórmula utilizada para calcular la velocidad a la que la  especie Pokémon sube de nivel.
+
+Cuerda
+Descripciones	
+Las descripciones de esta característica se listan en diferentes idiomas.
+
+Descripción de la lista
+Niveles	
+Una lista de niveles y la cantidad de experiencia necesaria para alcanzarlos según esta tasa de crecimiento.
+
+lista Nivel de experienciade la tasade crecimiento
+pokemon_especies	
+Una lista de especies de Pokémon que suben de nivel a este ritmo de crecimiento.
+
+lista Recursos APINombrados (Especies Pokémon)
+GrowthRateExperienceLevel (tipo)
+Nombre	Descripción	Tipo
+Nivel	
+El nivel ganado.
+
+enteros
+Experiencia	
+La cantidad de experiencia necesaria para alcanzar el nivel referenciado.
+
+enteros
+Naturalezas (punto final)
+Las naturalezas influyen en cómo crecen las estadísticas de un Pokémon. Véase Bulbapedia para más detalles.Guías de juegos Pokémon
+
+GET https://pokeapi.co/api/v2/nature/{id o nombre}/
+
+ID:2
+Nombre:"Audaz"
+Nombre:"ataque"
+URL:"https://pokeapi.co/api/v2/stat/2/"
+Nombre:"defensa"
+URL:"https://pokeapi.co/api/v2/stat/3/"
+Nombre:"Ácido"
+URL:"https://pokeapi.co/api/v2/berry-flavor/5/"
+Nombre:"picante"
+URL:"https://pokeapi.co/api/v2/berry-flavor/1/"
+max_change:-2
+Nombre:"velocidad"
+URL:"https://pokeapi.co/api/v2/pokeathlon-stat/1/"
+low_hp_preference:32
+high_hp_preference:30
+Nombre:"ataque"
+URL:"https://pokeapi.co/api/v2/move-battle-style/1/"
+Nombre:"がんばりや"
+Nombre:"Ja"
+URL:"https://pokeapi.co/api/v2/language/1/"
+ Ver JSON en bruto (1,031 kB, 48 líneas)
+Naturaleza (tipo)
+Nombre	Descripción	Tipo
+id	
+El identificador de este recurso.
+
+enteros
+Nombre	
+El nombre de este recurso.
+
+Cuerda
+decreased_stat	
+The stat decreased by 10% in Pokémon with this nature.
+
+NamedAPIResource (Stat)
+increased_stat	
+The stat increased by 10% in Pokémon with this nature.
+
+NamedAPIResource (Stat)
+hates_flavor	
+The flavor hated by Pokémon with this nature.
+
+NamedAPIResource (BerryFlavor)
+likes_flavor	
+The flavor liked by Pokémon with this nature.
+
+NamedAPIResource (BerryFlavor)
+pokeathlon_stat_changes	
+A list of Pokéathlon stats this nature effects and how much it effects them.
+
+list NatureStatChange
+move_battle_style_preferences	
+A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent.
+
+list MoveBattleStylePreference
+names	
+The name of this resource listed in different languages.
+
+list Name
+NatureStatChange (type)
+Name	Description	Type
+max_change	
+The amount of change.
+
+integer
+pokeathlon_ estadística	
+The stat being affected.
+
+Recurso APINombrado (PokeathlonStat)
+Preferencia de MoveBattleStylePreferencia (tipo)
+Nombre	Descripción	Tipo
+low_hp_preferencia	
+Probabilidad de usar el movimiento, en porcentaje, si la vida está por debajo de la mitad.
+
+enteros
+high_hp_preferencia	
+Probabilidad de usar el movimiento, en porcentaje, si la vida es superior a la mitad.
+
+enteros
+move_ battle_	
+El estilo de combate de movimientos.
+
+Recurso APINombrado (Estilo de Batallade Movimientos)
+Estadísticas de Pokeathlon (punto final)
+Las estadísticas de los Pokéathlon son diferentes atributos del rendimiento de un Pokémon en los Pokéathlons. En los Pokéathlons, las competiciones se celebran en diferentes circuitos; una para cada una de las diferentes estadísticas del Pokéathlon. Véase Bulbapedia para más detalles.
+
+GET https://pokeapi.co/api/v2/pokeathlon-stat/{id o nombre}/
+
+ID:1
+Nombre:"velocidad"
+max_change:2
+Nombre:"tímido"
+URL:"https://pokeapi.co/api/v2/nature/5/"
+max_change:-1
+Nombre:"Hardy"
+URL:"https://pokeapi.co/api/v2/nature/1/"
+Nombre:"Velocidad"
+Nombre:"en"
+URL:"https://pokeapi.co/api/v2/language/9/"
+ Ver JSON en bruto (0,576 kB, 33 líneas)
+Pokeathlon Stat (tipo)
+Nombre	Descripción	Tipo
+id	
+El identificador de este recurso.
+
+enteros
+Nombre	
+El nombre de este recurso.
+
+Cuerda
+Nombres	
+El nombre de este recurso aparece en diferentes idiomas.
+
+Nombre de la lista
+affecting_naturalezas	
+Un detalle de las naturalezas que afectan a esta estadística de Pokéathlon de forma positiva o negativa.
+
+Conjuntos de Afectode Estadísticasde Pokeatlonde la Naturaleza
+NaturePokeathlonStatAffectSets (tipo)
+Nombre	Descripción	Tipo
+Aumento	
+Una lista de naturalezas y cómo cambian la estadística de referencia del Pokéathlon.
+
+lista NaturalezaAfecto de las estadísticasdel Pokeathlon
+Disminución	
+Una lista de naturalezas y cómo cambian la estadística de referencia del Pokéathlon.
+
+lista NaturalezaAfecto de las estadísticasdel Pokeathlon
+NaturePokeathlonStatAffect (tipo)
+Nombre	Descripción	Tipo
+max_cambio	
+La cantidad máxima de cambio en la estadística de referencia del Pokéathlon.
+
+enteros
+Naturaleza	
+La naturaleza que causa el cambio.
+
+Recurso APINombrado (Nature)
+ Pokémon (punto final)
+ Los Pokémon son las criaturas que habitan el mundo de los juegos Pokémon. Se les puede capturar usando Pokébolas y entrenar luchando contra otros Pokémon. Cada Pokémon pertenece a una especie específica, pero puede adoptar una variante que lo diferencia de otros Pokémon de la misma especie, como estadísticas base, habilidades disponibles y tipos. Véase Bulbapedia para más detalles.Guías de juegos Pokémon
+
+GET https://pokeapi.co/api/v2/pokemon/{id o nombre}/
+
+ID:35
+Nombre:"Clefairy"
+base_experience:113
+Altura:6
+is_default:Cierto
+Orden:56
+Peso:75
+is_hidden:Cierto
+Franja:3
+Nombre:"Guardia de amigos"
+URL:"https://pokeapi.co/api/v2/ability/132/"
+Nombre:"Clefairy"
+URL:"https://pokeapi.co/api/v2/pokemon-form/35/"
+game_index:35
+Nombre:"blanco-2"
+URL:"https://pokeapi.co/api/v2/version/22/"
+Nombre:"Piedra lunar"
+URL:"https://pokeapi.co/api/v2/item/81/"
+location_area_encounters:"/api/v2/pokémon/35/encuentros"
+Nombre:"Golpe"
+URL:"https://pokeapi.co/api/v2/move/1/"
+Nombre:"Clefairy"
+URL:"https://pokeapi.co/api/v2/pokemon-species/35/"
+Últimas novedades:"https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/35.ogg"
+Legado:"https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/legacy/35.ogg"
+base_stat:35
+Esfuerzo:0
+Nombre:"velocidad"
+URL:"https://pokeapi.co/api/v2/stat/6/"
+Franja:1
+Nombre:"hada"
+URL:"https://pokeapi.co/api/v2/type/18/"
+Nombre:"Generación-V"
+URL:"https://pokeapi.co/api/v2/generation/5/"
+Nombre:"Generación-IV"
+URL:"https://pokeapi.co/api/v2/generation/4/"
+ Ver JSON en bruto (15,38 kB, 309 líneas)
+Pokémon (tipo)
+Nombre	Descripción	Tipo
+id	
+El identificador de este recurso.
+
+enteros
+Nombre	
+El nombre de este recurso.
+
+Cuerda
+base_ experiencia	
+La experiencia base obtenida al derrotar a este Pokémon.
+
+enteros
+Altura	
+La altura de este Pokémon en decímetros.
+
+enteros
+is_por defecto	
+Configurado para usar exactamente un Pokémon como predeterminado para cada especie.
+
+Booleano
+Orden	
+Orden para clasificar. Casi un orden nacional, salvo que las familias están agrupadas.
+
+enteros
+Peso	
+El peso de este Pokémon en hectogramas.
+
+enteros
+Habilidades	
+Una lista de habilidades que este Pokémon podría tener potencialmente.
+
+lista de habilidades Pokémon
+Formas	
+Una lista de formas que este Pokémon puede adoptar.
+
+lista NombreAPI Resource (PokemonForm)
+game_índices	
+Una lista de índices de juego relevantes para Pokémon por generación.
+
+lista VersiónÍndice de juegos
+held_ objetos	
+Una lista de objetos que este Pokémon puede estar sosteniendo cuando se encuentre.
+
+lista Pokémon Objeto en Poder
+location_area_encuentros	
+Un enlace a una lista de zonas localizadas, así como detalles de encuentros relacionados con versiones específicas.
+
+Cuerda
+Movimientos	
+Una lista de movimientos junto con métodos de aprendizaje y detalles de niveles relacionados con grupos de versiones específicos.
+
+lista Pokémon Move
+past_tipos	
+Una lista de detalles que muestran los tipos que este pokémon tuvo en generaciones anteriores
+
+lista Tipode Pokémon Pasado
+past_habilidades	
+Una lista de detalles que muestran las habilidades que este pokémon tuvo en generaciones anteriores
+
+lista HabilidadesPokémonPasadas
+past_estadísticas	
+Una lista de detalles que muestran las estadísticas que este pokémon tenía en generaciones anteriores
+
+lista EstadísticasAnteriores de Pokémon
+sprites	
+Un conjunto de sprites usados para representar a este Pokémon en el juego. Una representación visual de los distintos sprites puede encontrarse en PokeAPI/sprites
+
+Sprites Pokémon
+gritos	
+Un conjunto de gritos usados para representar a este Pokémon en el juego. Una representación visual de los distintos gritos se puede encontrar en PokeAPI/cries
+
+PokémonLlora
+Especies	
+La especie a la que pertenece este Pokémon.
+
+Recurso APINombrado (Especies Pokémon)
+Estadísticas	
+Una lista de valores base de estadísticas para este Pokémon.
+
+lista de estadísticas Pokémon
+Tipos	
+Una lista de detalles que muestran los tipos que tiene este  Pokémon.
+
+lista Tipo de Pokémon
+PokémonAbility (tipo)
+Nombre	Descripción	Tipo
+is_oculto	
+Si esto es una habilidad oculta o no.
+
+Booleano
+Ranura	
+La ranura que ocupa esta habilidad en esta especie Pokémon.
+
+enteros
+Capacidad	
+La habilidad que pueda tener el Pokémon.
+
+Recurso APINombrado (Ability)
+Tipo Pokémon (tipo)
+Nombre	Descripción	Tipo
+Ranura	
+El orden en que se listan los tipos de los Pokémon.
+
+enteros
+Tipo	
+El tipo que tiene el Pokémon mencionado.
+
+Recurso APINombrado (Tipo)
+PokémonFormType (tipo)
+Nombre	Descripción	Tipo
+Ranura	
+El orden en que se listan los tipos de los Pokémon.
+
+enteros
+Tipo	
+El tipo que tiene el formulario referenciado.
+
+Recurso APINombrado (Tipo)
+PokémonTipoPasado (tipo)
+Nombre	Descripción	Tipo
+generación	
+La última generación en la que los pokémon mencionados tenían los tipos listados.
+
+Recurso APINombrado (Generación)
+Tipos	
+Los tipos que tenían los pokémon referenciados hasta la generación lista.
+
+lista Tipo de Pokémon
+PokémonPasadoCapacidad (tipo)
+Nombre	Descripción	Tipo
+generación	
+La última generación en la que el pokémon mencionado tenía las habilidades mencionadas.
+
+Recurso APINombrado (Generación)
+Habilidades	
+Las habilidades que tenían los pokémon mencionados hasta e incluyendo la generación mencionada. Si era nulo, la ranura estaba previamente vacía.
+
+lista de habilidades Pokémon
+PokémonStatPast (tipo)
+Nombre	Descripción	Tipo
+generación	
+La última generación en la que el pokémon mencionado tenía las estadísticas listadas.
+
+Recurso APINombrado (Generación)
+Estadísticas	
+La estadística que tenían los Pokémon hasta e incluyendo la generación mencionada.
+
+lista de estadísticas Pokémon
+PokemonHeldItem (type)
+Name	Description	Type
+item	
+The item the referenced Pokémon holds.
+
+NamedAPIResource (Item)
+version_details	
+The details of the different versions in which the item is held.
+
+list PokemonHeldItemVersion
+PokemonHeldItemVersion (type)
+Name	Description	Type
+version	
+The version in which the item is held.
+
+NamedAPIResource (Version)
+rarity	
+How often the item is held.
+
+integer
+PokemonMove (type)
+Name	Description	Type
+move	
+The move the Pokémon can learn.
+
+NamedAPIResource (Move)
+version_group_details	
+The details of the version in which the Pokémon can learn the move.
+
+list PokemonMoveVersion
+PokemonMoveVersion (type)
+Name	Description	Type
+move_learn_method	
+The method by which the move is learned.
+
+NamedAPIResource (MoveLearnMethod)
+version_group	
+The version group in which the move is learned.
+
+NamedAPIResource (VersionGroup)
+level_learned_at	
+The minimum level to learn the move.
+
+integer
+order	
+Order by which the  pokemon will learn the move. A newly learnt move will replace the move with lowest order.
+
+integer
+PokemonStat (type)
+Name	Description	Type
+stat	
+The stat the Pokémon has.
+
+NamedAPIResource (Stat)
+effort	
+The effort points (EV) the Pokémon has in the stat.
+
+integer
+base_stat	
+The base value of the stat.
+
+integer
+PokemonSprites (type)
+Name	Description	Type
+front_default	
+The default depiction of this Pokémon from the front in battle.
+
+string
+front_shiny	
+The shiny depiction of this Pokémon from the front in battle.
+
+string
+front_female	
+The female depiction of this  Pokémon from the front in battle.
+
+string
+front_shiny_female	
+The shiny female depiction of this Pokémon from the front in battle.
+
+string
+back_default	
+The default depiction of this Pokémon from the back in battle.
+
+string
+back_shiny	
+The shiny depiction of this Pokémon from the back in battle.
+
+string
+back_female	
+The female depiction of this Pokémon from the back in battle.
+
+string
+back_shiny_female	
+The shiny female depiction of this Pokémon from the back in battle.
+
+string
+PokemonCries (type)
+Name	Description	Type
+latest	
+The latest depiction of this Pokémon's cry.
+
+string
+legacy	
+The legacy depiction of this Pokémon's cry.
+
+string
+ Pokemon Location Areas (endpoint)
+Pokémon Location Areas are ares where Pokémon can be found.Pokémon Game Guides
+
+GET https://pokeapi.co/api/v2/pokemon/{id or name}/encounters
+
+name:"kanto-route-2-south-towards-viridian-city"
+url:"https://pokeapi.co/api/v2/location-area/296/"
+ View raw JSON (0.837 kB, 34 lines)
+LocationAreaEncounter (type)
+Name	Description	Type
+location_area	
+The location area the referenced Pokémon can be encountered in.
+
+NamedAPIResource (LocationArea)
+version_details	
+A list of versions and encounters with the referenced Pokémon that might happen.
+
+list VersionEncounterDetail
+Pokemon Colors (endpoint)
+Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex is usually the color most apparent or covering each Pokémon's body. No orange category exists; Pokémon that are primarily orange are listed as red or brown.
+
+GET https://pokeapi.co/api/v2/pokemon-color/{id or name}/
+
+id:1
+name:"black"
+name:"é»’ã„"
+name:"ja"
+url:"https://pokeapi.co/api/v2/language/1/"
+name:"snorlax"
+url:"https://pokeapi.co/api/v2/pokemon-species/143/"
+ View raw JSON (0.326 kB, 19 lines)
+PokemonColor (type)
+Name	Description	Type
+id	
+The identifier for this resource.
+
+integer
+name	
+The name for this resource.
+
+string
+names	
+The name of this resource listed in different languages.
+
+list Name
+pokemon_species	
+A list of the Pokémon species that have this color.
+
+list NamedAPIResource (PokemonSpecies)
+Pokemon Forms (endpoint)
+Some Pokémon may appear in one of multiple, visually different forms. These differences are purely cosmetic. For variations within a Pokémon species, which do differ in more than just visuals, the 'Pokémon' entity is used to represent such a variety.
+
+GET https://pokeapi.co/api/v2/pokemon-form/{id or name}/
+
+id:10041
+name:"arceus-bug"
+order:631
+form_order:7
+is_default:false
+is_battle_only:false
+is_mega:false
+form_name:"bug"
+name:"arceus"
+url:"https://pokeapi.co/api/v2/pokemon/493/"
+slot:1
+name:"bug"
+url:"https://pokeapi.co/api/v2/type/7/"
+name:"diamond-pearl"
+url:"https://pokeapi.co/api/v2/version-group/8/"
+ View raw JSON (1.103 kB, 37 lines)
+PokemonForm (type)
+Name	Description	Type
+id	
+The identifier for this resource.
+
+integer
+name	
+The name for this resource.
+
+string
+order	
+The order in which forms should be sorted within all forms. Multiple forms may have equal order, in which case they should fall back on sorting by name.
+
+integer
+form_order	
+The order in which forms should be sorted within a species' forms.
+
+integer
+is_default	
+True for exactly one form used as the default for each Pokémon.
+
+boolean
+is_battle_only	
+Whether or not this form can only happen during battle.
+
+boolean
+is_mega	
+Whether or not this form requires mega evolution.
+
+boolean
+form_name	
+The name of this form.
+
+string
+pokemon	
+The  Pokémon that can take on this form.
+
+NamedAPIResource (Pokemon)
+types	
+A list of details showing types this Pokémon form has.
+
+list PokemonFormType
+sprites	
+A set of sprites used to depict this Pokémon form in the game.
+
+PokemonFormSprites
+version_group	
+The version group this Pokémon form was introduced in.
+
+NamedAPIResource (VersionGroup)
+names	
+The form specific full name of this Pokémon form, or empty if the form does not have a specific name.
+
+list Name
+form_names	
+The form specific form name of this Pokémon form, or empty if the form does not have a specific name.
+
+list Name
+PokemonFormSprites (type)
+Name	Description	Type
+front_default	
+The default depiction of this Pokémon form from the front in battle.
+
+string
+front_shiny	
+The shiny depiction of this Pokémon form from the front in battle.
+
+string
+back_default	
+The default depiction of this Pokémon form from the back in battle.
+
+string
+back_shiny	
+The shiny depiction of this Pokémon form from the back in battle.
+
+string
+ Pokemon Habitats (endpoint)
+Habitats are generally different terrain Pokémon can be found in but can also be areas designated for rare or legendary Pokémon.Pokémon Game Guides
+
+GET https://pokeapi.co/api/v2/pokemon-habitat/{id or name}/
+
+id:1
+name:"cave"
+name:"grottes"
+name:"fr"
+url:"https://pokeapi.co/api/v2/language/5/"
+name:"zubat"
+url:"https://pokeapi.co/api/v2/pokemon-species/41/"
+ View raw JSON (0.315 kB, 19 lines)
+PokemonHabitat (type)
+Name	Description	Type
+id	
+The identifier for this resource.
+
+integer
+name	
+The name for this resource.
+
+string
+names	
+The name of this resource listed in different languages.
+
+list Name
+pokemon_species	
+A list of the Pokémon species that can be found in this habitat.
+
+list NamedAPIResource (PokemonSpecies)
+Pokemon Shapes (endpoint)
+Shapes used for sorting Pokémon in a Pokédex.
+
+GET https://pokeapi.co/api/v2/pokemon-shape/{id or name}/
+
+id:1
+name:"ball"
+awesome_name:"Pomaceous"
+name:"en"
+url:"https://pokeapi.co/api/v2/language/9/"
+name:"Ball"
+name:"en"
+url:"https://pokeapi.co/api/v2/language/9/"
+name:"shellder"
+url:"https://pokeapi.co/api/v2/pokemon-species/90/"
+ View raw JSON (0.493 kB, 28 lines)
+PokemonShape (type)
+Name	Description	Type
+id	
+The identifier for this resource.
+
+integer
+name	
+The name for this resource.
+
+string
+awesome_names	
+The "scientific" name of this Pokémon shape listed in different languages.
+
+list AwesomeName
+names	
+The name of this resource listed in different languages.
+
+list Name
+pokemon_species	
+A list of the Pokémon species that have this shape.
+
+list NamedAPIResource (PokemonSpecies)
+AwesomeName (type)
+Name	Description	Type
+awesome_name	
+The localized "scientific" name for an API resource in a specific language.
+
+string
+language	
+The language this "scientific" name is in.
+
+NamedAPIResource (Language)
+Pokemon Species (endpoint)
+A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Pokémon species are shared across all varieties of Pokémon within the species. A good example is Wormadam; Wormadam is the species which can be found in three different varieties, Wormadam-Trash, Wormadam-Sandy and Wormadam-Plant.
+
+GET https://pokeapi.co/api/v2/pokemon-species/{id or name}/
+
+id:413
+name:"wormadam"
+order:441
+gender_rate:8
+capture_rate:45
+base_happiness:70
+is_baby:false
+is_legendary:false
+is_mythical:false
+hatch_counter:15
+has_gender_differences:false
+forms_switchable:false
+name:"medium"
+url:"https://pokeapi.co/api/v2/growth-rate/2/"
+entry_number:45
+name:"kalos-central"
+url:"https://pokeapi.co/api/v2/pokedex/12/"
+name:"bug"
+url:"https://pokeapi.co/api/v2/egg-group/3/"
+name:"gray"
+url:"https://pokeapi.co/api/v2/pokemon-color/4/"
+name:"squiggle"
+url:"https://pokeapi.co/api/v2/pokemon-shape/2/"
+name:"burmy"
+url:"https://pokeapi.co/api/v2/pokemon-species/412/"
+url:"https://pokeapi.co/api/v2/evolution-chain/213/"
+habitat:null
+name:"generation-iv"
+url:"https://pokeapi.co/api/v2/generation/4/"
+name:"Wormadam"
+name:"en"
+url:"https://pokeapi.co/api/v2/language/9/"
+flavor_text:"When the bulb on its back grows large, it appearsto lose the ability to stand on its hind legs."
+name:"en"
+url:"https://pokeapi.co/api/v2/language/9/"
+name:"red"
+url:"https://pokeapi.co/api/v2/version/1/"
+description:"Forms have different stats and movepools. During evolution, Burmy's current cloak becomes Wormadam's form, and can no longer be changed."
+name:"en"
+url:"https://pokeapi.co/api/v2/language/9/"
+genus:"Bagworm"
+name:"en"
+url:"https://pokeapi.co/api/v2/language/9/"
+is_default:true
+name:"wormadam-plant"
+url:"https://pokeapi.co/api/v2/pokemon/413/"
+ View raw JSON (2.373 kB, 102 lines)
+PokemonSpecies (type)
+Name	Description	Type
+id	
+The identifier for this resource.
+
+integer
+name	
+The name for this resource.
+
+string
+order	
+The order in which species should be sorted. Based on National Dex order, except families are grouped together and sorted by stage.
+
+integer
+gender_rate	
+The chance of this  Pokémon being female, in eighths; or -1 for genderless.
+
+integer
+capture_rate	
+The base capture rate; up to 255. The higher the number, the easier the catch.
+
+integer
+base_happiness	
+The happiness when caught by a normal Pokéball; up to 255. The higher the number, the happier the Pokémon.
+
+integer
+is_baby	
+Whether or not this is a baby Pokémon.
+
+boolean
+is_legendary	
+Whether or not this is a legendary Pokémon.
+
+boolean
+is_mythical	
+Whether or not this is a mythical Pokémon.
+
+boolean
+hatch_counter	
+Initial hatch counter: one must walk Y × (hatch_counter + 1) steps before this Pokémon's egg hatches, unless utilizing bonuses like Flame Body's. Y varies per generation. In Generations II, III, and VII, Egg cycles are 256 steps long. In Generation IV, Egg cycles are 255 steps long. In Pokémon Brilliant Diamond and Shining Pearl, Egg cycles are also 255 steps long, but are shorter on special dates. In Generations V and VI, Egg cycles are 257 steps long. In Pokémon Sword and Shield, and in Pokémon Scarlet and Violet, Egg cycles are 128 steps long.
+
+integer
+has_gender_differences	
+Whether or not this Pokémon has visual gender differences.
+
+boolean
+forms_switchable	
+Whether or not this Pokémon has multiple forms and can switch between them.
+
+boolean
+growth_rate	
+The rate at which this Pokémon species gains levels.
+
+NamedAPIResource (GrowthRate)
+pokedex_numbers	
+A list of Pokedexes and the indexes reserved within them for this Pokémon species.
+
+list PokemonSpeciesDexEntry
+egg_groups	
+A list of egg groups this Pokémon species is a member of.
+
+list NamedAPIResource (EggGroup)
+color	
+The color of this Pokémon for Pokédex search.
+
+NamedAPIResource (PokemonColor)
+shape	
+The shape of this Pokémon for Pokédex search.
+
+NamedAPIResource (PokemonShape)
+evolves_from_species	
+The Pokémon species that evolves into this Pokemon_species.
+
+NamedAPIResource (PokemonSpecies)
+evolution_chain	
+The evolution chain this Pokémon species is a member of.
+
+APIResource (EvolutionChain)
+habitat	
+The habitat this Pokémon species can be encountered in.
+
+NamedAPIResource (PokemonHabitat)
+generation	
+The generation this Pokémon species was introduced in.
+
+NamedAPIResource (Generation)
+names	
+The name of this resource listed in different languages.
+
+list Name
+pal_park_encounters	
+A list of encounters that can be had with this Pokémon species in pal park.
+
+list PalParkEncounterArea
+flavor_text_entries	
+A list of flavor text entries for this Pokémon species.
+
+list FlavorText
+form_descriptions	
+Descriptions of different forms Pokémon take on within the Pokémon species.
+
+list Description
+genera	
+The genus of this Pokémon species listed in multiple languages.
+
+list Genus
+varieties	
+A list of the  Pokémon that exist within this Pokémon species.
+
+list PokemonSpeciesVariety
+Genus (type)
+Name	Description	Type
+genus	
+The localized genus for the referenced Pokémon species
+
+string
+language	
+The language this genus is in.
+
+NamedAPIResource (Language)
+PokemonSpeciesDexEntry (type)
+Name	Description	Type
+entry_number	
+The index number within the Pokédex.
+
+integer
+pokedex	
+The Pokédex the referenced Pokémon species can be found in.
+
+NamedAPIResource (Pokedex)
+PalParkEncounterArea (type)
+Name	Description	Type
+base_score	
+The base score given to the player when the referenced Pokémon is caught during a pal park run.
+
+integer
+rate	
+The base rate for encountering the referenced Pokémon in this pal park area.
+
+integer
+area	
+The pal park area where this encounter happens.
+
+NamedAPIResource (PalParkArea)
+PokemonSpeciesVariety (type)
+Name	Description	Type
+is_default	
+Whether this variety is the default variety.
+
+boolean
+pokemon	
+The Pokémon variety.
+
+NamedAPIResource (Pokemon)
+Stats (endpoint)
+Stats determine certain aspects of battles. Each Pokémon has a value for each stat which grows as they gain levels and can be altered momentarily by effects in battles.Pokémon Game Guides
+
+GET https://pokeapi.co/api/v2/stat/{id or name}/
+
+id:2
+name:"attack"
+game_index:2
+is_battle_only:false
+change:2
+name:"swords-dance"
+url:"https://pokeapi.co/api/v2/move/14/"
+change:-1
+name:"growl"
+url:"https://pokeapi.co/api/v2/move/45/"
+name:"lonely"
+url:"https://pokeapi.co/api/v2/nature/6/"
+name:"bold"
+url:"https://pokeapi.co/api/v2/nature/2/"
+url:"https://pokeapi.co/api/v2/characteristic/2/"
+name:"physical"
+url:"https://pokeapi.co/api/v2/move-damage-class/2/"
+name:"ã“ã†ã’ã"
+name:"ja"
+url:"https://pokeapi.co/api/v2/language/1/"
+ View raw JSON (1.116 kB, 58 lines)
+Stat (type)
+Name	Description	Type
+id	
+The identifier for this resource.
+
+integer
+name	
+The name for this resource.
+
+string
+game_index	
+ID the games use for this stat.
+
+integer
+is_battle_only	
+Whether this stat only exists within a battle.
+
+boolean
+affecting_moves	
+A detail of moves which affect this stat positively or negatively.
+
+MoveStatAffectSets
+affecting_natures	
+A detail of natures which affect this stat positively or negatively.
+
+NatureStatAffectSets
+characteristics	
+A list of characteristics that are set on a Pokémon when its highest base stat is this stat.
+
+list APIResource (Characteristic)
+move_damage_class	
+The class of damage this stat is directly related to.
+
+NamedAPIResource (MoveDamageClass)
+names	
+The name of this resource listed in different languages.
+
+list Name
+MoveStatAffectSets (type)
+Name	Description	Type
+increase	
+A list of moves and how they change the referenced stat.
+
+list MoveStatAffect
+decrease	
+A list of moves and how they change the referenced stat.
+
+list MoveStatAffect
+MoveStatAffect (type)
+Name	Description	Type
+change	
+The maximum amount of change to the referenced stat.
+
+integer
+move	
+The move causing the change.
+
+NamedAPIResource (Move)
+NatureStatAffectSets (type)
+Name	Description	Type
+increase	
+A list of natures and how they change the referenced stat.
+
+list NamedAPIResource (Nature)
+decrease	
+A list of nature sand how they change the referenced stat.
+
+list NamedAPIResource (Nature)
+Types (endpoint)
+Types are properties for  Pokémon and their moves. Each type has three properties: which types of Pokémon it is super effective against, which types of Pokémon it is not very effective against, and which types of Pokémon it is completely ineffective against.
+
+GET https://pokeapi.co/api/v2/type/{id or name}/
+
+id:5
+name:"ground"
+name:"generation-v"
+url:"https://pokeapi.co/api/v2/generation/5/"
+game_index:4
+name:"generation-i"
+url:"https://pokeapi.co/api/v2/generation/1/"
+name:"generation-i"
+url:"https://pokeapi.co/api/v2/generation/1/"
+name:"physical"
+url:"https://pokeapi.co/api/v2/move-damage-class/2/"
+name:"ã˜ã‚ã‚“"
+name:"ja"
+url:"https://pokeapi.co/api/v2/language/1/"
+slot:1
+name:"sandshrew"
+url:"https://pokeapi.co/api/v2/pokemon/27/"
+name:"sand-attack"
+url:"https://pokeapi.co/api/v2/move/28/"
+ View raw JSON (2.743 kB, 129 lines)
+Type (type)
+Name	Description	Type
+id	
+The identifier for this resource.
+
+integer
+name	
+The name for this resource.
+
+string
+damage_relations	
+A detail of how effective this type is toward others and vice versa.
+
+TypeRelations
+past_damage_relations	
+A list of details of how effective this type was toward others and vice versa in previous generations
+
+list TypeRelationsPast (Type)
+game_indices	
+A list of game indices relevent to this item by generation.
+
+list GenerationGameIndex
+generation	
+The generation this type was introduced in.
+
+NamedAPIResource (Generation)
+move_damage_class	
+The class of damage inflicted by this type.
+
+NamedAPIResource (MoveDamageClass)
+names	
+The name of this resource listed in different languages.
+
+list Name
+pokemon	
+A list of details of Pokémon that have this type.
+
+list TypePokemon
+moves	
+A list of moves that have this type.
+
+list NamedAPIResource (Move)
+TypePokemon (type)
+Name	Description	Type
+slot	
+The order the Pokémon's types are listed in.
+
+integer
+pokemon	
+The Pokémon that has the referenced type.
+
+NamedAPIResource (Pokemon)
+TypeRelations (type)
+Name	Description	Type
+no_damage_to	
+A list of types this type has no effect on.
+
+list NamedAPIResource (Type)
+half_damage_to	
+A list of types this type is not very effect against.
+
+list NamedAPIResource (Type)
+double_damage_to	
+A list of types this type is very effect against.
+
+list NamedAPIResource (Type)
+no_damage_from	
+A list of types that have no effect on this type.
+
+list NamedAPIResource (Type)
+half_damage_from	
+A list of types that are not very effective against this type.
+
+list NamedAPIResource (Type)
+double_damage_from	
+A list of types that are very effective against this type.
+
+list NamedAPIResource (Type)
+TypeRelationsPast (type)
+Name	Description	Type
+generation	
+The last generation in which the referenced type had the listed damage relations
+
+NamedAPIResource (Generation)
+damage_relations	
+The damage relations the referenced type had up to and including the listed generation
+
+TypeRelations
+Utility (group)
+Languages (endpoint)
+Languages for translations of API resource information.API testing tools
+
+GET https://pokeapi.co/api/v2/language/{id or name}/
+
+id:1
+name:"ja"
+official:true
+iso639:"ja"
+iso3166:"jp"
+name:"Japanese"
+name:"en"
+url:"https://pokeapi.co/api/v2/language/9/"
+ View raw JSON (0.247 kB, 16 lines)
+Language (type)
+Name	Description	Type
+id	
+The identifier for this resource.
+
+integer
+name	
+The name for this resource.
+
+string
+official	
+Whether or not the games are published in this language.
+
+boolean
+iso639	
+The two-letter code of the country where this language is spoken. Note that it is not unique.
+
+string
+iso3166	
+The two-letter code of the language. Note that it is not unique.
+
+string
+names	
+The name of this resource listed in different languages.
+
+list Name
+Common Models
+APIResource (type)
+Name	Description	Type
+url	
+The URL of the referenced resource.
+
+string
+Description (type)
+Name	Description	Type
+description	
+The localized description for an API resource in a specific language.
+
+string
+language	
+The language this name is in.
+
+NamedAPIResource (Language)
+Effect (type)
+Name	Description	Type
+effect	
+The localized effect text for an API resource in a specific language.
+
+string
+language	
+The language this effect is in.
+
+NamedAPIResource (Language)
+Encounter (type)
+Name	Description	Type
+min_level	
+The lowest level the  Pokémon could be encountered at.
+
+integer
+max_level	
+The highest level the Pokémon could be encountered at.
+
+integer
+condition_values	
+A list of condition values that must be in effect for this encounter to occur.
+
+list NamedAPIResource (EncounterConditionValue)
+chance	
+Percent chance that this encounter will occur.
+
+integer
+method	
+The method by which this encounter happens.
+
+NamedAPIResource (EncounterMethod)
+FlavorText (type)
+Name	Description	Type
+flavor_text	
+The localized flavor text for an API resource in a specific language. Note that this text is left unprocessed as it is found in game files. This means that it contains special characters that one might want to replace with their visible decodable version. Please check out this issue to find out more.
+
+string
+language	
+The language this name is in.
+
+NamedAPIResource (Language)
+version	
+The game version this flavor text is extracted from.
+
+NamedAPIResource (Version)
+GenerationGameIndex (type)
+Name	Description	Type
+game_index	
+The internal id of an API resource within game data.
+
+integer
+generation	
+The generation relevent to this game index.
+
+NamedAPIResource (Generation)
+MachineVersionDetail (type)
+Name	Description	Type
+machine	
+The machine that teaches a move from an item.
+
+APIResource (Machine)
+version_group	
+The version group of this specific machine.
+
+NamedAPIResource (VersionGroup)
+Name (type)
+Name	Description	Type
+name	
+The localized name for an API resource in a specific language.
+
+string
+language	
+The language this name is in.
+
+NamedAPIResource (Language)
+NamedAPIResource (type)
+Name	Description	Type
+name	
+The name of the referenced resource.
+
+string
+url	
+The URL of the referenced resource.
+
+string
+VerboseEffect (type)
+Name	Description	Type
+effect	
+The localized effect text for an API resource in a specific language.
+
+string
+short_effect	
+The localized effect text in brief.
+
+string
+language	
+The language this effect is in.
+
+NamedAPIResource (Language)
+VersionEncounterDetail (type)
+Name	Description	Type
+version	
+The game version this encounter happens in.
+
+NamedAPIResource (Version)
+max_chance	
+The total percentage of all encounter potential.
+
+integer
+encounter_details	
+A list of encounters and their specifics.
+
+list Encounter
+VersionGameIndex (type)
+Name	Description	Type
+game_index	
+The internal id of an API resource within game data.
+
+integer
+version	
+The version relevent to this game index.
+
+NamedAPIResource (Version)
+VersionGroupFlavorText (type)
+Name	Description	Type
+text	
+The localized name for an API resource in a specific language.
+
+string
+language	
+The language this name is in.
+
+NamedAPIResource (Language)
+version_group	
+The version group which uses this flavor text.
+
+NamedAPIResource (VersionGroup)
+Created by Paul Hallett and other PokéAPI contributors around the world. Pokémon and Pokémon character names are trademarks of Nintendo.
+Status
