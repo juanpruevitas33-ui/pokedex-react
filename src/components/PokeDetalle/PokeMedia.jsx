@@ -1,27 +1,52 @@
-// src/components/PokeDetalle/PokeMedia.jsx
-import { Box, useMediaQuery, useTheme } from '@mui/material';
+import { Box, Stack } from '@mui/material';
 import { PokeTypeChips } from '../shared/PokeTypeChips';
 
 export const PokeMedia = ({ pokemon }) => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-
-  // Lógica: Si es mobile, busca el GIF. Si es PC o no hay GIF, usa el arte oficial.
-  const imageToShow = (isMobile && pokemon.sprites.versions['generation-v']['black-white'].animated.front_default)
-    ? pokemon.sprites.versions['generation-v']['black-white'].animated.front_default
-    : pokemon.sprites.other['official-artwork'].front_default;
+  const officialArt = pokemon.sprites.other['official-artwork'].front_default;
+  const animatedGif = pokemon.sprites.versions?.['generation-v']?.['black-white']?.animated?.front_default;
 
   return (
-    <>
-      <Box sx={{ display: 'flex', justifyContent: 'center', mb: 2, height: '160px' }}>
+    <Stack spacing={2} alignItems="center" sx={{ mb: 2, flexShrink: 0 }}>
+      <Box sx={{ 
+        // Tamaño aumentado para que el GIF no se vea pequeño en móvil
+        width: { xs: '220px', md: '220px' }, 
+        height: { xs: '180px', md: '220px' }, 
+        display: 'flex', 
+        alignItems: 'center', 
+        justifyContent: 'center',
+        flexShrink: 0 
+      }}>
+        {/* GIF para móviles (xs a md) */}
         <Box 
           component="img"
-          src={imageToShow} 
+          src={animatedGif || officialArt} 
           alt={pokemon.name} 
-          sx={{ width: '150px', height: '150px', objectFit: 'contain' }} 
+          sx={{ 
+            display: { xs: 'block', md: 'none' }, 
+            width: 'auto',
+            height: '100%',
+            maxWidth: '100%',
+            objectFit: 'contain'
+          }} 
+        />
+
+        {/* Estática para Desktop (md en adelante) */}
+        <Box 
+          component="img"
+          src={officialArt} 
+          alt={pokemon.name} 
+          sx={{ 
+            display: { xs: 'none', md: 'block' }, 
+            width: '100%',
+            height: '100%',
+            objectFit: 'contain'
+          }} 
         />
       </Box>
-      <PokeTypeChips types={pokemon.types} size="medium" />
-    </>
+      
+      <Box sx={{ flexShrink: 0 }}>
+        <PokeTypeChips types={pokemon.types} size="medium" />
+      </Box>
+    </Stack>
   );
 };
